@@ -1,0 +1,1553 @@
+openapi: 3.1.0
+info:
+  title: "OGC API - Records 4 AI"
+  version: '1.0.0'
+  description: |-
+    This is a sample OpenAPI definition that conforms to the conformance
+    classes "Core", "GeoJSON", "HTML" and "OpenAPI 3.0" of the draft
+    standard "OGC API - Records - Part 1: Core" with extensions for:
+    * AI (https://docs.mlcommons.org/croissant/docs/croissant-spec.html)
+    * Vocabularies 
+
+    This example is a generic OGC API - Records definition that uses path
+    parameters to describe all record collections and all records.
+    The generic OpenAPI definition does not provide any details on the
+    collections or the record content. This information is only available
+    from accessing the record collection resources.
+
+    A record is the atomic unit of information, that provides a description (i.e. metadata) about a resource that the provider of the resource wishes to make discoverable.
+
+    A record collection provides information about and access to a set of related records. Such a collection of records is also referred to as a catalog.
+  contact:
+    name: organisation
+    email: email@organisation.com
+    url: 'https://www.organisation.com'
+  license:
+    name: license
+    url: 'https://license.com/license/'
+servers:
+  - url: 'http://api.organisation.com/production'
+    description: Production Server
+  - url: 'http://api.organisation.com/development'
+    description: Development Server
+tags:
+  - name: Capabilities
+    description: |-
+      essential characteristics of this API
+  - name: Conformance
+    description: |-
+      list of conformance classes implemented by this API
+  - name: Collections
+    description: |-
+      list of catalogs offered by this API
+  - name: Collection
+    description: |-
+      description of a catalog offered by this API
+  - name: Sortables
+    description: |-
+      list of record properties by which responses can be sorted
+  - name: Records
+    description: |-
+      access to records
+  - name: Record
+    description: |-
+      access to a single record
+  - name: Vocabularies
+    description: |-
+      list of vocabularies used by a collection
+  - name: Vocabulary
+    description: |-
+      access to a single vocabulary
+  - name: Queryables
+    description: |-
+      list of record properties by which responses can be filtered
+paths:
+  '/':
+    get:
+      tags:
+        - Capabilities
+      summary: landing page
+      description: |-
+          The landing page provides links to the API definition, the conformance
+          statements and to the record collections in this dataset.
+      operationId: getLandingPage
+      parameters:
+          - $ref: '#/components/parameters/f'
+          - name: f
+            in: query
+            schema:
+              enum:
+                - html
+                - json
+      responses:
+        '200':
+          $ref: '#/components/responses/LandingPage'
+        '4XX':
+          $ref: '#/components/responses/BadRequest'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '5XX':
+          $ref: '#/components/responses/ServerError'
+  '/api':
+    get:
+      tags:
+        - Capabilities
+      summary: (OPTIONAL) definition (OpenAPI) of this API and the capabilities provided
+      description: |-
+        Retrieves the API definition (OpenAPI) which describes the capabilities provided by that API. This resource can be used by developers to understand the API, by software clients to connect to the server, and by development tools to support the implementation of servers and clients. Note use of /api on the server is optional and the API definition may be hosted on completely separate server.
+      operationId: getAPI
+      parameters:
+        - $ref: '#/components/parameters/f'
+        - name: f
+          in: query
+          schema:
+            enum:
+              - json
+      responses:
+        '200':
+          $ref: '#/components/responses/API'
+        '4XX':
+          $ref: '#/components/responses/BadRequest'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '5XX':
+          $ref: '#/components/responses/ServerError'
+  '/conformance':
+    get:
+      tags:
+        - Conformance
+      summary: information about specifications that this API conforms to
+      description: |-
+        A list of all conformance classes specified in a standard that the
+        server conforms to.
+      operationId: getConformanceDeclaration
+      parameters:
+        - $ref: '#/components/parameters/f'
+        - name: f
+          in: query
+          schema:
+            enum:
+              - json
+              - html
+      responses:
+        '200':
+          $ref: '#/components/responses/ConformanceDeclaration'
+        '4XX':
+          $ref: '#/components/responses/BadRequest'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '5XX':
+          $ref: '#/components/responses/ServerError'
+  '/collections':
+    get:
+      tags:
+        - Collections
+      summary: the record collections
+      description: |-
+        Fetch list of record catalogs offered by this API
+      operationId: getCollections
+      parameters:
+        - $ref: '#/components/parameters/f'
+        - name: f
+          in: query
+          schema:
+            enum:
+              - json
+              - html
+      responses:
+        '200':
+          $ref: '#/components/responses/Catalogs'
+        '4XX':
+          $ref: '#/components/responses/BadRequest'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '5XX':
+          $ref: '#/components/responses/ServerError'
+  '/collections/{catalogId}':
+    get:
+      tags:
+        - Collection
+      summary: |-
+        describe the record collection with id `catalogId`
+      description: |-
+        Fetch a detailed description of a catalog or collection of records
+        with id `catalogId`.
+      operationId: describeCollection
+      parameters:
+        - $ref: '#/components/parameters/f'
+        - name: f
+          in: query
+          schema:
+            enum:
+              - json
+              - html
+        - $ref: '#/components/parameters/catalogId'
+      responses:
+        '200':
+          $ref: '#/components/responses/Catalog'
+        '4XX':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '5XX':
+          $ref: '#/components/responses/ServerError'
+  '/collections/{catalogId}/sortables':
+    get:
+      tags:
+        - Sortables
+      summary: |-
+        get the list of sortable properties
+      description: |-
+        Fetch the list of properties which can be used to sort the getRecords
+        response.
+      operationId: getSortables
+      parameters:
+        - $ref: '#/components/parameters/f'
+        - name: f
+          in: query
+          schema:
+            enum:
+              - json
+              - html
+        - $ref: '#/components/parameters/catalogId'
+      responses:
+        '200':
+          $ref: '#/components/responses/Sortables'
+        '4XX':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '5XX':
+          $ref: '#/components/responses/ServerError'
+  '/collections/{catalogId}/items':
+    get:
+      tags:
+        - Records
+      summary: fetch records
+      description: |-
+        Fetch records of the record collection with id `catalogId`.
+        
+        Every record in a dataset belongs to a collection. A dataset may
+        consist of multiple record collections. A record collection is often a
+        collection of records of a similar type, based on a common schema.
+        
+        Use content negotiation to request HTML or GeoJSON.
+      operationId: getRecords
+      parameters:
+        - $ref: '#/components/parameters/f'
+        - name: f
+          in: query
+          schema:
+            enum:
+              - geojson
+              - html
+        - $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/parameters/bbox.yaml'
+        - $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/parameters/datetime.yaml'
+        - $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/parameters/limit.yaml'
+        - $ref: '#/components/parameters/catalogId'
+        - $ref: '#/components/parameters/q'
+        - $ref: '#/components/parameters/type'
+        - $ref: '#/components/parameters/externalId'
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/sortby'
+      responses:
+        '200':
+          $ref: '#/components/responses/Records'
+        '4XX':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '5XX':
+          $ref: '#/components/responses/ServerError'
+  '/collections/{catalogId}/items/{recordId}':
+    get:
+      tags:
+        - Record
+      summary: fetch a single record
+      description: |-
+        Fetch the record with id `recordId` in the record collection
+        with id `catalogId`.
+        
+        Use content negotiation to request HTML or GeoJSON.
+      operationId: getRecord
+      parameters:
+        - $ref: '#/components/parameters/f'
+        - name: f
+          in: query
+          schema:
+            enum:
+              - json
+              - html
+        - $ref: '#/components/parameters/catalogId'
+        - $ref: '#/components/parameters/recordId'
+      responses:
+        '200':
+          $ref: '#/components/responses/Record'
+        '4XX':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '5XX':
+          $ref: '#/components/responses/ServerError'
+
+
+
+components:
+
+  # ------------ PARAMETERS ------------
+
+  parameters:
+    f:
+      name: format
+      in: query
+      description: optional response format parameter  (e.g., JSON, GeoJSON, HTML)
+      required: false
+      schema:
+        type: string
+      example: geojson
+
+    catalogId:
+      name: catalogId
+      in: path
+      description: local identifier of a catalog
+      required: true
+      schema:
+        type: string
+    q:
+      name: q
+      in: query
+      description: |-
+        The optional q parameter supports keyword searching.  Only records
+        whose text fields contain one or more of the specified search terms
+        are selected.  The specific set of text keys/fields/properties of a
+        record to which the q operator is applied is up to the description
+        of the server.   Implementations should, however, apply the q
+        operator to the title, description and keywords keys/fields/properties.
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      explode: false
+      style: form
+    type:
+      name: type
+      in: query
+      description: |-
+        The optional type parameter supports searching by resource type.  Only
+        records whose type, as indicated by the value of the type core
+        queryable, is equal to one of the listed values shall be selected.
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      explode: false
+      style: form
+    externalId:
+      name: externalId
+      in: query
+      description: |-
+        The optional externalId parameter supports searching by an identifier
+        that was not assigned by the catalog (i.e. an external identifier).
+        Only records with an external identifer, as indicated by the value of
+        the externalId core queryable array, that is equal to one of the listed
+        values shall be selected.
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      explode: false
+      style: form
+    ids:
+      name: ids
+      in: query
+      description:
+        The optional ids parameter allows a specified of records to be fetched
+        from a catalog using their identifiers.
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      explode: false
+      style: form
+    sortby:
+      name: sortby
+      in: query
+      description: |-
+        Specifies a comma-separated list of property names by which the response shall
+        be sorted.  If the property name is preceded by a plus (+) sign it indicates
+        an ascending sort for that property.  If the property name is preceded by a
+        minus (-) sign it indicates a descending sort for that property.  If the
+        property is not preceded by a plus or minus, then the default sort order
+        implied is ascending (+).
+      required: false
+      schema:
+        type: array
+        minItems: 1
+        items:
+          type: string
+          pattern: '[+|-]?[A-Za-z_].*'
+      explode: false
+      style: form
+    recordId:
+      name: recordId
+      in: path
+      description: local identifier of a record
+      required: true
+      schema:
+        type: string
+
+  # ------------ RESPONSES ------------
+
+  responses:
+    API:
+      description:
+        Retrieves the OpenAPI definition as JSON. # 'https://github.com/OAI/OpenAPI-Specification/blob/main/schemas/v3.1/schema.yaml'
+    BadRequest:
+      description:
+        A client error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
+        text/html:
+          schema:
+            type: string
+    InvalidParameter: # appears unused in the github example
+      description:
+        A query parameter has an invalid value.
+      content:
+        application/json:
+          schema:
+            $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
+        text/html:
+          schema:
+            type: string
+    NotAcceptable:
+      description:
+        Content negotiation failed. For example, the `Accept` header submitted
+        in the request did not support any of the media types supported by the
+        server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
+        text/html:
+          schema:
+            type: string
+    NotFound:
+      description:
+        The requested resource does not exist on the server. For example,
+        a path parameter had an incorrect value.
+      content:
+        application/json:
+          schema:
+            $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
+        text/html:
+          schema:
+            type: string
+    ServerError:
+      description:
+        A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
+        text/html:
+          schema:
+            type: string
+    LandingPage:
+      description:
+        The landing page provides links to the API definition (link relations
+        `service-desc` and `service-doc`), the Conformance declaration (path
+        `/conformance`, link relation `conformance`), and the Record Collections
+        (path `/collections`, link relation `data`).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/landingPage'
+        text/html:
+          schema:
+            type: string
+    ConformanceDeclaration:
+      description:
+        The URIs of all conformance classes supported by the server.
+      content:
+        application/json:
+          schema:
+            $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/confClasses.yaml'
+        text/html:
+          schema:
+            type: string
+    Catalog:
+      description: |-
+        Information about the record collection with id `collectionId`.
+
+        The response contains a link to the items in the collection
+        (path `/collections/{collectionId}/items`, link relation `items`)
+        as well as key information about the collection. This information
+        includes:
+
+        * A local identifier for the collection that is unique for the +
+          catalog;
+        * A list of coordinate reference systems (CRS) in which geometries +
+          may be returned by the server. The first CRS is the default +
+          coordinate reference system (the default is always WGS 84 with +
+          axis order longitude/latitude);
+        * An optional title and description for the collection;
+        * An optional extent that can be used to provide an indication of +
+          the spatial and temporal extent of the collection - typically +
+          derived from the data;
+        * An optional indicator about the type of the items in the collection +
+          (the default value, if the indicator is not provided, is 'record').
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/catalog'
+        text/html:
+          schema:
+            type: string
+    Catalogs:
+      description:
+        Information about the list of catalogs offered by this service.
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/collections.yaml'
+              - type: object
+                properties:
+                  collections:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/catalog'
+                  linkTemplates:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/linkTemplate'
+        text/html:
+          schema:
+            type: string
+    Sortables:
+      description:
+        A list of properties by which the server response may be sorted.
+      content:
+        application/json:
+          schema:
+            type: object
+            description:
+              A JSON Schema document that defines all the sortables.
+        text/html:
+          schema:
+            type: string
+    Record:
+      description:
+        Fetch the record with id `recordId` in the record collection
+        with id `collectionId`
+      content:
+        application/geo+json:
+          schema: # FYI: opting to support only geoJSON rather the vanilla JSON and geoJSON
+            $ref: '#/components/schemas/recordGeoJSON'
+        text/html:
+          schema:
+            type: string
+    Records:
+      description:
+        The response is a document consisting of records in the collection.
+        The records included in the response are determined by the server
+        based on the query parameters of the request. To support access to
+        larger collections without overloading the client, the API supports
+        paged access with links to the next page, if more records are selected
+        that the page size.
+
+        The `bbox` and `datetime` parameter can be used to select only a
+        subset of the records in the collection (the records that are in the
+        bounding box or time interval). The `bbox` parameter matches all records
+        in the collection that are not associated with a location, too. The
+        `datetime` parameter matches all records in the collection that are
+        not associated with a time stamp or interval, too.
+
+        The `limit` parameter may be used to control the subset of the
+        selected records that should be returned in the response, the page size.
+        Each page may include information about the number of selected and
+        returned records (`numberMatched` and `numberReturned`) as well as
+        links to support paging (link relation `next`).
+      content:
+        application/geo+json:
+          schema:
+            allOf:
+              - $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureCollectionGeoJSON.yaml'
+              - type: object
+                properties:
+                  features:
+                    type: array
+                    items: # FYI: opting to support only geoJSON rather the vanilla JSON and geoJSON
+                      $ref: '#/components/schemas/recordGeoJSON'
+                  linkTemplates:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/linkTemplate'
+        text/html:
+          schema:
+            type: string
+
+
+  # ------------ SCHEMAS ------------
+
+  schemas:
+    vocabulary:
+      type: object
+      title: 'Vocabulary'
+      required:
+        - id
+        - links
+      properties:
+        id:
+          description: identifier of the vocabulary used, for example, in URIs
+          type: string
+          example: address
+        title:
+          description: human readable title of the collection
+          type: string
+          example: address
+        description:
+          description: a description of the features in the collection
+          type: string
+          example: An address.
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+
+    linkBase:
+      type: object
+      properties:
+        rel:
+          type: string
+          description: The type or semantics of the relation.
+          example:
+            - "alternate"
+        type:
+          type: string
+          description:
+            A hint indicating what the media type of the
+            result of dereferencing the link should be.
+          example:
+            - "application/geo+json"
+        hreflang:
+          type: string
+          description:
+            A hint indicating what the language of the
+            result of dereferencing the link should be.
+          example:
+            - "en"
+        title:
+          type: string
+          description:
+            Used to label the destination of a link
+            such that it can be used as a human-readable
+            identifier.
+          example:
+            - "Trierer Strasse 70, 53115 Bonn"
+        length:
+          type: integer
+        created:
+          type: string
+          description:
+            Date of creation of the resource pointed to
+            by the link.
+          format: date-time
+        updated:
+          type: string
+          description:
+            Most recent date on which the resource pointed
+            to by the link was changed.
+          format: date-time
+    link:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/linkBase'
+        - type: object
+          required:
+            - href
+          properties:
+            href:
+              type: string
+              format: uri
+    linkTemplate:
+      allOf:
+        - $ref: '#/components/schemas/linkBase'
+        - type: object
+          required:
+            - uriTemplate
+          properties:
+            uriTemplate:
+              type: string
+              description:
+                Supplies a resolvable URI to a remote resource
+                (or resource fragment).
+              example:
+                - "http://data.example.com/buildings/(building-id}"
+            varBase:
+              type: string
+              description:
+                The base URI to which the variable name can be
+                appended to retrieve the definition of the
+                variable as a JSON Schema fragment.
+              format: uri
+            variables:
+              type: object
+              description:
+                This object contains one key per substitution
+                variable in the templated URL.  Each key defines
+                the schema of one substitution variable using a
+                JSON Schema fragment and can thus include things
+                like the data type of the variable, enumerations,
+                minimum values, maximum values, etc.
+    landingPage:
+      allOf:
+        - $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/landingPage.yaml'
+        - type: object
+          properties:
+            linkTemplates:
+              type: array
+              items:
+                $ref: '#/components/schemas/linkTemplate'
+#    collection: # FYI this doesn't appear to be used in the github example
+#      allOf:
+#        - $ref: '#/components/schemas/catalog'
+#        - type: object
+#          properties:
+#            itemType:
+#              description:
+#                For a collection of records, the itemType is
+#                fixed to "record".
+#              type: string
+#              enum:
+#                - record
+    catalog:
+      allOf:
+        - $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/collection.yaml'
+        - $ref: '#/components/schemas/recordCommonProperties'  # TODO or should it use recordCroissantProperties
+        - type: object
+          required:
+            - type
+          properties:
+            itemType:
+              description: 
+                If this catalog is a homogenous collection
+                of records then itemType is a string of fixed
+                value of record.
+                If this catalog is a homogenous collection
+                of other catalogs then itemType is a string of
+                fixed value of catalog.
+                If this catalog is a heterogenous collection
+                of records and catalogs then itemType is a array
+                indicated that item types of the members of this
+                collections (i.e. record and/or catalog).
+              oneOf:
+                - type: string
+                  enum:
+                    - record
+                    - catalog
+                - type: array
+                  items:
+                    type: string
+                    enum:
+                      - record
+                      - catalog
+            type:
+              description:
+                Fixed to catalog for collections of records
+                and/or subordinate catalogs.
+              type: string
+              enum:
+                - Catalog
+            conformsTo:
+              type: array
+              description:
+                The extensions/conformance classes used in this record.
+              items:
+                type: string
+            recordsArrayName:
+              type: string
+              default:
+                - records
+            records: # TODO I don't understand the purpose of this, don't we use 'items' to get records, or is there a subtly different purpose
+              type: array
+              description:
+                An array of records that are part of this catalog that
+                are encoded in-line with the catalog.
+              items: # FYI: opting to support only geoJSON rather the vanilla JSON and geoJSON
+                $ref: '#/components/schemas/recordGeoJSON'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            linkTemplates:
+              type: array
+              items:
+                $ref: '#/components/schemas/linkTemplate'
+            schemes:
+              type: array
+              description:
+                A list of schemes used in this context.
+              items:
+                $ref: '#/components/schemas/scheme'
+    scheme:
+      type: object
+      required:
+        - scheme-id
+        - namespace
+      properties:
+        scheme-id:
+          type: string
+          description:
+            An identifier for this namespace.  The identifier can be used as a
+            short-form for the namespace.
+        namespace:
+          type: string
+          description:
+            A declarative region that provides a scope to the identifiers inside it.
+            It is recommended that the value of namespace be a URI.
+        resolver:
+          description:
+            An extensible description of a mechanism that resolves a scheme
+            identifier (scheme-id) to its namespace.
+          type: object
+    recordCommonProperties:
+      type: object
+      properties:
+        created:
+          type: string
+          description:
+            The date this record was created in the server.
+          format: date-time
+        updated:
+          type: string
+          description:
+            The most recent date on which the record was changed.
+          format: date-time
+        type:
+          type: string
+          description:
+            The nature or genre of the resource. The value
+            should be a code, convenient for filtering
+            records. Where available, a link to the canonical
+            URI of the record type resource will be added to
+            the 'links' property.
+        title:
+          type: string
+          description:
+            A human-readable name given to the resource.
+        description:
+          type: string
+          description:
+            A free-text account of the resource.
+        keywords:
+          type: array
+          description:
+            The topic or topics of the resource. Typically
+            represented using free-form keywords, tags, key
+            phrases, or classification codes.
+          items:
+            type: string
+        themes:
+          type: array
+          description:
+            A knowledge organization system used to classify
+            the resource.
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/theme'
+        language:
+          # description: The language used for textual values in this record representation.
+          $ref: '#/components/schemas/language'
+        languages:
+          type: array
+          description:
+            This list of languages in which this record is
+            available.
+          items:
+            $ref: '#/components/schemas/language'
+        resourceLanguages:
+          type: array
+          description:
+            The list of languages in which the resource
+            described by this record is available.
+          items:
+            $ref: '#/components/schemas/language'
+        externalIds:
+          type: array
+          description:
+            An identifier for the resource assigned by an
+            external (to the catalog) entity.
+          items:
+            type: object
+            properties:
+              scheme:
+                type: string
+                description:
+                  A reference to an authority or identifier
+                  for a knowledge organization system from
+                  which the external identifier was obtained.
+                  It is recommended that the identifier be a
+                  resolvable URI.
+              value:
+                type: string
+                description: The value of the identifier.
+            required:
+              - value
+        formats:
+          type: array
+          description:
+            A list of available distributions of the resource.
+          items:
+            $ref: '#/components/schemas/format'
+        contacts:
+          type: array
+          description:
+            A list of contacts qualified by their role(s) in
+            association to the record or the resource described
+            by the record.
+          items:
+            $ref: '#/components/schemas/contact'
+        license:
+          $ref: '#/components/schemas/license'
+        rights:
+          type: string
+          description:
+            A statement that concerns all rights not addressed
+            by the license such as a copyright statement.
+
+    recordCroissantProperties: #TODO does this need to be separated into properties for records and properties for catalogs, and does mapping to Croissant make sense for both?
+      allOf:
+        - $ref: '#/components/schemas/recordCommonProperties'
+        - type: object
+          required:
+            - title  # Mandatory in Croissant
+            - description  # Mandatory in Croissant
+          properties:
+            created:
+              type: string
+              description:
+                The date this record was created in the server.
+                Croissant, schema:datePublished
+              format: date-time
+            updated:
+              type: string
+              description:
+                The most recent date on which the record was changed.
+                Croissant, schema:dateModified
+              format: date-time
+            type:
+              type: string
+              description:
+                The nature or genre of the resource. The value
+                should be a code, convenient for filtering
+                records. Where available, a link to the canonical
+                URI of the record type resource will be added to
+                the 'links' property.
+                Croissant, schema:type (must have value schema:Dataset)
+            title:
+              type: string
+              description:
+                A human-readable name given to the resource. 
+                Croissant, schema:name
+            description:
+              type: string
+              description:
+                A free-text account of the resource.
+                Croissant, schema:description
+            keywords:
+              type: array
+              description:
+                The topic or topics of the resource. Typically
+                represented using free-form keywords, tags, key
+                phrases, or classification codes.
+                Croissant, schema:keywords
+              items:
+                type: string
+            themes:
+              type: array
+              description:
+                A knowledge organization system used to classify
+                the resource.
+                Croissant, schema:keywords
+              minItems: 1
+              items:
+                $ref: '#/components/schemas/theme'
+            language:
+              # description: The language used for textual values in this record representation.
+              $ref: '#/components/schemas/language'
+            languages:
+              type: array
+              description:
+                This list of languages in which this record is
+                available.
+              items:
+                $ref: '#/components/schemas/language'
+            resourceLanguages:
+              type: array
+              description:
+                The list of languages in which the resource
+                described by this record is available.
+                Croissant, schema:inLanguage
+              items:
+                $ref: '#/components/schemas/language'
+            externalIds:
+              type: array
+              description:
+                An identifier for the resource assigned by an
+                external (to the catalog) entity.
+              items:
+                type: object
+                properties:
+                  scheme:
+                    type: string
+                    description:
+                      A reference to an authority or identifier
+                      for a knowledge organization system from
+                      which the external identifier was obtained.
+                      It is recommended that the identifier be a
+                      resolvable URI.
+                  value:
+                    type: string
+                    description: The value of the identifier.
+                required:
+                  - value
+            formats:
+              type: array
+              description:
+                A list of available distributions of the resource.
+              items:
+                $ref: '#/components/schemas/format'
+            contacts:
+              type: array
+              description:
+                A list of contacts qualified by their role(s) in
+                association to the record or the resource described
+                by the record.
+                Croissant, schema:publisher, schema:creator?
+              items:
+                $ref: '#/components/schemas/contact'
+            license:
+              # Croissant, schema:license
+              $ref: '#/components/schemas/license'
+            rights:
+              type: string
+              description:
+                A statement that concerns all rights not addressed
+                by the license such as a copyright statement.
+
+            # Additional Croissant properties
+            version:
+              type: string
+              description:
+                Croissant, schema:version
+            cite-as:
+              type: string
+              description:
+                Croissant, cr:citeAs
+            same-as:
+              type: array
+              description:
+                Croissant, schema:sameAs
+              items:
+                $ref: '#/components/schemas/link'
+            sd-license:
+              type: array
+              description:
+                Croissant, schema:sdLicense
+              items:
+                $ref: '#/components/schemas/license'
+            distribution:
+              type: array
+              description:
+                Croissant, schema:distribution, croissant:FileObject or croissant:FileSet  
+                (note that the croissant spec overrides the data type defined in schema.org - 
+                for a schema:Dataset this would be of type DataDownload)
+              items:
+                type: string
+            live-dataset:
+              type: boolean
+              description:
+                Croissant, cr:isLiveDataset
+            resources:
+              type: array
+              items:
+                anyOf:
+                  -  $ref: '#/components/schemas/croissant-file-set'
+                  -  $ref: '#/components/schemas/croissant-file-object'
+    croissant-file-set:
+      type: object
+      required:
+      properties:
+        type: # TODO is this mapped to @type
+          description: FileSet for homogeneous sets of files that are part of the dataset (e.g., a directory of images).
+          type: string
+          enum:
+            - cr:FileSet
+        name: # TODO is this mapped to @id
+          description: The name of the file. As much as possible, the name should reflect the name of the file as downloaded, including the file extension. e.g. "images.zip".
+          type: string
+        description:
+          description: Description.
+          type: string
+        contained-in:
+          description: Another FileObject or FileSet that this one is contained in, e.g., in the case of a file extracted from an archive. When this property is present, the contentUrl is evaluated as a relative path within the container object.
+          type: array
+          items:
+            type: string
+        encoding-format:
+          description: The format of the file, given as a mime type.
+          type: string
+        includes:
+          description: A glob pattern that specifies the files to include.
+          type: array
+          items:
+            type: string
+        excludes:
+          description: A glob pattern that specifies the files to exclude.
+          type: array
+          items:
+            type: string
+    croissant-file-object:
+      type: object
+      required:
+      properties:
+        type: # TODO is this mapped to @type
+          description: FileObject for individual files that are part of a dataset.
+          type: string
+          enum:
+            - cr:FileObject
+        name: # TODO is this mapped to @id
+          description: The name of the file. As much as possible, the name should reflect the name of the file as downloaded, including the file extension. e.g. "images.zip".
+          type: string
+        description:
+          description: Description.
+          type: string
+        content-url:
+          description: Actual bytes of the media object, for example the image file or video file.
+          # TODO use link or string
+          type:  '#/components/schemas/link'
+        content-size:
+          description: File size in (mega/kilo/…)bytes. Defaults to bytes if a unit is not specified.
+          type: string
+        encoding-format:
+          description: The format of the file, given as a mime type.
+          type: string
+        same-as:
+          description: URL (or local name) of a FileObject with the same content, but in a different format.
+          # TODO use link or string
+          type: '#/components/schemas/link'
+        sha256:
+          description: Checksum for the file contents.
+          type: string
+        contained-in:
+          description: Another FileObject or FileSet that this one is contained in, e.g., in the case of a file extracted from an archive. When this property is present, the contentUrl is evaluated as a relative path within the container object.
+          type: array
+          items:
+            type: string
+    theme:
+      type: object
+      required:
+        - concepts
+        - scheme
+      properties:
+        concepts:
+          type: array
+          description:
+            One or more entity/concept identifiers from this knowledge
+            system. it is recommended that a resolvable URI be used for
+            each entity/concept identifier.
+          minItems: 1
+          items:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: string
+                description: An identifier for the concept.
+              title:
+                type: string
+                description: A human readable title for the concept.
+              description:
+                type: string
+                description: A human readable description for the concept.
+              url:
+                type: string
+                format: uri
+                description: A URI providing further description of the concept.
+        scheme:
+          type: string
+          description:
+            An identifier for the knowledge organization system used
+            to classify the resource.  It is recommended that the
+            identifier be a resolvable URI.  The list of schemes used
+            in a searchable catalog can be determined by inspecting
+            the server's OpenAPI document or, if the server implements
+            CQL2, by exposing a queryable (e.g. named `scheme`) and
+            enumerating the list of schemes in the queryable's schema
+            definition.
+    language:
+      type: object
+      description:
+        The language used for textual values in this record.
+      required:
+        - code
+      properties:
+        code:
+          type: string
+          description:
+            The language tag as per RFC-5646.
+          example:
+            - "el"
+        name:
+          type: string
+          minLength: 1
+          description:
+            The untranslated name of the language.
+          example:
+            - "Ελληνικά"
+        alternate:
+          type: string
+          description:
+            The name of the language in another well-understood language,
+            usually English.
+          example:
+            - "Greek"
+        dir:
+          type: string
+          description:
+            The direction for text in this language. The default, `ltr`
+            (left-to-right), represents the most common situation.
+            However, care should be taken to set the value of `dir`
+            appropriately if the language direction is not `ltr`.
+            Other values supported are `rtl` (right-to-left), `ttb`
+            (top-to-bottom), and `btt` (bottom-to-top).
+          enum:
+            - ltr
+            - rtl
+            - ttb
+            - btt
+          default: ltr
+    format:
+      type: object
+      anyOf:
+        - required:
+            - name
+        - required:
+            - mediaType
+      properties:
+        name:
+          type: string
+        mediaType:
+          type: string
+    license:
+      type: string
+      description:
+        A legal document under which the resource is made available.
+        If the resource is being made available under a common license
+        then use an SPDX license id (https://spdx.org/licenses/).
+        If the resource is being made available under multiple common
+        licenses then use an SPDX license expression v2.3 string
+        (https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/)
+        If the resource is being made available under one or more licenses
+        that haven't been assigned an SPDX identifier or one or more custom
+        licenses then use a string value of 'other' and include one or more
+        links (rel="license") in the `link` section of the record to the
+        file(s) that contains the text of the license(s).
+        There is also the case of a resource that is private or unpublished
+        and is thus unlicensed; in this case do not register such a resource
+        in the catalog in the first place since there is no point in making
+        such a resource discoverable.
+        Croissant, schema:license
+    roles:
+      description:
+        The list of duties, job functions or permissions assigned by the system
+        and associated with the context of this member.
+      type: array
+      minItems: 1
+      items:
+        type: string
+    contact:
+      description: |-
+        Identification of, and means of communication with, person responsible
+        for the resource.
+      type: object
+      anyOf:
+        - required:
+            - name
+        - required:
+            - organization
+      properties:
+        identifier:
+          type: string
+          description: |-
+            A value uniquely identifying a contact.
+        name:
+          type: string
+          description: |-
+            The name of the responsible person.
+        position:
+          type: string
+          description:
+            The name of the role or position of the responsible person taken
+            from the organization's formal organizational hierarchy or chart.
+        organization:
+          type: string
+          description:
+            Organization/affiliation of the contact.
+        logo:
+          description:
+            Graphic identifying a contact. The link relation should be `icon`
+            and the media type should be an image media type.
+          allOf:
+            - $ref: '#/components/schemas/link'
+            - type: object
+              required:
+                - rel
+                - type
+              properties:
+                rel:
+                  enum:
+                    - icon
+        phones: # indented 1 place to the right to avoid INVALID
+          type: array
+          description: Telephone numbers at which contact can be made.
+          items:
+            type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+                description: The value is the phone number itself.
+                pattern: "^\\+[1-9]{1}[0-9]{3,14}$"
+                example:
+                  - "+14165550142"
+              roles:
+                # description: The type of phone number (e.g. home, work, fax, etc.).
+                $ref: '#/components/schemas/roles'
+        emails:
+          type: array
+          description: Email addresses at which contact can be made.
+          items:
+            type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+                description: The value is the email number itself.
+                format: email
+              roles:
+                # description: The type of email (e.g. home, work, etc.).
+                $ref: '#/components/schemas/roles'
+        addresses:
+          type: array
+          description: Physical location at which contact can be made.
+          items:
+            type: object
+            properties:
+              deliveryPoint:
+                type: array
+                description: Address lines for the location.
+                items:
+                  type: string
+              city:
+                type: string
+                description: City for the location.
+              administrativeArea:
+                type: string
+                description: State or province of the location.
+              postalCode:
+                type: string
+                description: ZIP or other postal code.
+              country:
+                type: string
+                description: Country of the physical address.  ISO 3166-1 is recommended.
+              roles:
+                # description: The type of address (e.g. office, home, etc.).
+                $ref: '#/components/schemas/roles'
+        links:
+          type: array
+          description: On-line information about the contact.
+          items:
+            allOf:
+              - $ref: '#/components/schemas/link'
+              - type: object
+                required:
+                  - type
+        hoursOfService:
+          type: string
+          description: Time period when the contact can be contacted.
+          example:
+            - "Hours: Mo-Fr 10am-7pm Sa 10am-22pm Su 10am-21pm"
+        contactInstructions:
+          type: string
+          description: |-
+            Supplemental instructions on how or when to contact the
+            responsible party.
+        roles:
+          # description: The set of named duties, job functions and/or permissions associated with this contact.  (e.g. developer, administrator, etc.).
+          $ref: '#/components/schemas/roles'
+    time:
+      type: object
+      nullable: true
+      properties:
+        date:
+          type: string
+          pattern: "^\\d{4}-\\d{2}-\\d{2}$"
+        timestamp:
+          type: string
+          pattern: "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+        interval:
+          type: array
+          minItems: 2
+          maxItems: 2
+          items:
+            oneOf:
+              - type: string
+                pattern: "^\\d{4}-\\d{2}-\\d{2}$"
+              - type: string
+                pattern: "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+              - type: string
+                enum:
+                  - ".."
+        resolution:
+          type: string
+          description:
+            Minimum time period resolvable in the dataset, as an ISO 8601 duration
+          example:
+            - "P1D"
+    recordJSON: # FYI: opting to support only geoJSON rather the vanilla JSON and geoJSON
+      allOf:
+        - $ref: '#/components/schemas/recordCroissantProperties'
+        - type:
+            object
+          required:
+            - id
+            - time # can be null
+          properties:
+            id:
+              type: string
+              description:
+                The unique identifier for this record.
+            time:
+              description:
+                A characteristic time or time interval associated
+                with the resource that this record described.
+              oneOf:
+                - enum:
+                    - null
+                - $ref: '#/components/schemas/time'
+            geometry:
+              description:
+                A characteristic spatial extent association with
+                the resource that this record described.
+              oneOf:
+                - enum:
+                    - null
+                - $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml'
+            conformsTo:
+              type: array
+              description:
+                The extensions/conformance classes used in this record.
+                Croissant, dct:conformsTo (must have value http://mlcommons.org/croissant/1.0)
+              items:
+                type: string
+            links:
+              description:
+                A list of static links associated with this record.
+                Croissant, schema:url (of rel type 'describes')
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            linkTemplates:
+              description:
+                A list of dynamic links associated with this record.
+              type: array
+              items:
+                $ref: '#/components/schemas/linkTemplate'
+    recordGeoJSON:
+      type: object
+      required:
+        - id
+        - type
+        - geometry # can be null
+        - properties
+        - time # can be null
+      properties:
+        id:
+          type: string
+          description:
+            A unique identifier of the catalog record.
+        type:
+          type: string
+          enum:
+            - Feature
+        time:
+          oneOf:
+            - enum:
+                - null
+            - $ref: '#/components/schemas/time'
+        geometry:
+          oneOf:
+            - enum:
+                - null
+            - $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml'
+        conformsTo:
+          type: array
+          description:
+            The extensions/conformance classes used in this record.
+            Croissant, dct:conformsTo (must have value http://mlcommons.org/croissant/1.0)
+          items:
+            type: string
+        properties:
+          allOf:
+            - $ref: '#/components/schemas/recordCroissantProperties'
+            - type:
+                object
+        links:
+          type: array
+          description:
+            A list of static links associated with this record.
+            Croissant, schema:url (of rel type 'describes')
+          items:
+            $ref: '#/components/schemas/link'
+        linkTemplates:
+          type: array
+          items:
+            $ref: '#/components/schemas/linkTemplate'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
