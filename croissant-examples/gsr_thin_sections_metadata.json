@@ -1,0 +1,225 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+	"rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "bgs-rock-thin-section-sample-images",
+  "description": "Thin sections of rock samples held at BGS with pairs of plain and cross polarised images",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "license": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+  "url": "https://www.bgs.ac.uk/technologies/databases/bgs-rock-collections/",
+  "creator" : [
+             {"@type": "Organization",
+             "name": "British Geological Survey"}],
+  "datePublished" : "2025-02-03",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "parquet-versioned-download",
+      "name": "parquet-versioned-download",
+      "contentUrl": "https://resources.bgs.ac.uk/apis/collections/gsr-sample-images/2025-02-01.parquet",
+      "encodingFormat": "application/x-parquet",
+	  "isLiveDataset" : "false",
+	  "contentSize": "TBD",
+      "sha256": "TBD"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "csv-versioned-download",
+      "name": "csv-versioned-download",
+      "contentUrl": "https://resources.bgs.ac.uk/apis/collections/gsr-sample-images/2025-02-01.csv",
+      "encodingFormat": "text/csv",
+	  "isLiveDataset" : "false",
+	  "contentSize": "TBD",
+      "sha256": "TBD"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "api-image-csv-1",
+      "name": "api-image-csv-1",
+      "contentUrl": "https://ogcapi.bgs.ac.uk/collections/gsr-sample-images/items?f=csv&limit=100000&properties=gsr_id,sample_name,lithostratigraphy_code,lithology_code,image_url&sample_type=THINSECTION&hasImage=true&imageType=plain",
+      "encodingFormat": "text/csv",
+	  "isLiveDataset" : "true"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "api-image-csv-2",
+      "name": "api-image-csv-2",
+      "contentUrl": "https://ogcapi.bgs.ac.uk/collections/gsr-sample-images/items?f=csv&offset=100000&limit=100000&properties=gsr_id,sample_name,lithostratigraphy_code,lithology_code,image_url&sample_type=THINSECTION&hasImage=true&imageType=plain",
+      "encodingFormat": "text/csv",
+	  "isLiveDataset" : "true"
+    },	
+	{
+      "@type": "cr:FileSet",
+      "@id": "csv-items",
+      "name": "csv-items",
+      "containedIn": [
+            { "@id": "api-image-csv-1"},
+		    { "@id": "api-image-csv-2"}
+      ],
+      "encodingFormat": "text/csv",
+      "includes": "*/*.csv"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "thin-section-images",
+      "name": "thin-section-images",
+	  "key": { "@id": "gsr/gsr_id" },
+      "description": "Index of thin section images with descriptive labels and urls to the image file",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "gsr/gsr_id",
+          "name": "gsr/gsr_id",
+		  "source": {
+              "fileObject": [{ "@id": "api-image-csv-1" },
+				             { "@id": "api-image-csv-2" } ],
+               "extract": { "column": "gsr_id" }
+          },
+          "description": "Generic Sample Register unique identifier",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "gsr/sample_name",
+          "name": "gsr/sample_name",
+		  "source": {
+              "fileObject": [{ "@id": "api-image-csv-1" },
+				             { "@id": "api-image-csv-2" }  ],
+               "extract": { "column": "sample_name" }
+          },
+          "description": "Generic Sample Register unique sample name",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "gsr/sample_type",
+          "name": "gsr/sample_type",
+		  "source": {
+              "fileObject": [{ "@id": "api-image-csv-1" },
+				             { "@id": "api-image-csv-2" }  ],
+               "extract": { "column": "sample_type" }
+          },
+          "description": "Type of sample, e.g. 'THINSECTION'",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "gsr/parent_id",
+          "name": "gsr/parent_id",
+		  "source": {
+              "fileObject": [{ "@id": "api-image-csv-1" },
+				             { "@id": "api-image-csv-2" }  ],
+               "extract": { "column": "parent_id" }
+          },
+          "description": "Identifier of parent sample",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "gsr/sample_or_part",
+          "name": "gsr/sample_or_part",
+          "source": {
+              "fileObject": [{ "@id": "api-image-csv-1" },
+				             { "@id": "api-image-csv-2" }  ],
+               "extract": { "column": "sample_or_part" }
+          },
+          "description": "Indication if this is a sample 'SAMPLE' or part of a sample 'PART' which would have a parent_id",
+          "dataType": "sc:Text"
+        },      
+        {
+          "@type": "cr:Field",
+          "@id": "gsr/lithology_code",
+          "name": "gsr/lithology_code",
+          "source": {
+              "fileObject": [{ "@id": "api-image-csv-1" },
+				             { "@id": "api-image-csv-2" }  ],
+               "extract": { "column": "lithology_code" }
+          },
+          "description": "Code for the lithology, from BGS Rock Classification Scheme",
+          "dataType": "sc:Text"
+        },      
+        {
+          "@type": "cr:Field",
+          "@id": "gsr/lithostratigraphy_code",
+          "name": "gsr/lithostratigraphy_code",
+          "source": {
+              "fileObject": [{ "@id": "api-image-csv-1" },
+				             { "@id": "api-image-csv-2" }  ],
+               "extract": { "column": "lithostratigraphy_code" }
+          },
+          "description": "Code for the lithostratigraphy, from BGS Lexicon of Named Rock Units",
+          "dataType": "sc:Text"
+        },      
+        {
+          "@type": "cr:Field",
+          "@id": "gsr/image_url",
+          "name": "gsr/image_url",
+          "source": {
+              "fileObject": [{ "@id": "api-image-csv-1" },
+				             { "@id": "api-image-csv-2" }  ],
+               "extract": { "column": "image_url" }
+          },
+          "description": "Url to download the sample image",
+          "dataType": "sc:Text"
+        },      
+        {
+          "@type": "cr:Field",
+          "@id": "gsr/xp_image_url",
+          "name": "gsr/xp_image_url",
+          "source": {
+              "fileObject": [{ "@id": "api-image-csv-1" },
+				             { "@id": "api-image-csv-2" }  ],
+               "extract": { "column": "image_xp_url" }
+          },
+          "description": "Url to download the cross polarised version of the sample image",
+          "dataType": "sc:Text"
+        }
+		]
+    }
+  ]
+}
