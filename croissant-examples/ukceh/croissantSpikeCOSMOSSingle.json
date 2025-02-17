@@ -1,0 +1,148 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+	  "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:FileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@id": "beb62085-ba81-480c-9ed0-2d31c27ff196_croissant",
+  "@type": "sc:Dataset",
+  "name": "COSMOS data",
+  "url": "https://catalogue.ceh.ac.uk/documents/399ed9b1-bf59-4d85-9832-ee4d29f49bfb",
+  "dct:conformsTo": "http://mlcommons.org/croissant/1.0",
+  "version": 1,
+  "description": "This dataset contains daily and sub-daily hydrometeorological and soil moisture observations from COSMOS-UK (cosmic-ray soil moisture) monitoring network from October 2013 to the end of 2023. These data are from 51 sites across the UK recording a range of hydrometeorological and soil variables.",
+  "citeAs": "Wang, Q., Shan, Y., Morten, C., Hunt, J., Harris, P., & Wu, L. (2024). Spatial and temporal measurement of soil moisture and nitrogen in a pasture field [Dataset]. Rothamsted Research. https://doi.org/10.23637/ROTHAMSTED.9910X",
+  "datePublished": "2024-04-08",
+  "license": [
+    {
+      "@type": "CreativeWork",
+      "name": "This resource is available under the terms of the Open Government Licence",
+      "license": "http://eidc.ceh.ac.uk/admin/licences/OGL/plain"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Open Government Licence v3",
+      "alternateName": "OGL-UK-3.0",
+      "license": "https://spdx.org/licenses/OGL-UK-3.0.html"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "This resource is available under the terms of the Open Government Licence",
+      "license": "https://eidc.ceh.ac.uk/licences/NPNN/plain"
+    }
+  ],
+  "distribution": [
+    {
+      "@type": "fileObject",
+      "@id": "cosmos-uk_alic1_hydrosoil_daily_2015-2023.csv",
+      "sha256": "82a7cc2f1e68a6997137041a4b75fc6114cb49cbe6bf59ddb8ec69d6bf577da7",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_alic1_hydrosoil_daily_2015-2023.csv",
+      "contentSize": "88830479 B",
+      "encodingFormat": "text/csv"
+    },
+    {
+      "@type": "fileObject",
+      "@id": "cosmos-uk_balrd_hydrosoil_daily_2014-2023.csv",
+      "sha256": "5f409c832c1a391135b63d5251ebcdfabd07987bf15db97eceaef3bba4925633",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_balrd_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "88830479 B",
+      "encodingFormat": "text/csv"
+    }
+  ],
+  "keywords": [
+    "agroecosystems",
+    "pollinator schemes",
+    "Pollinators",
+    "Biodiversity",
+    "Animal behaviour"
+  ],
+  "creator": [
+    {
+      "@id": "https://orcid.org/0000-0002-9457-312X",
+      "@type": "Person",
+      "name": "Haive, B.",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/016476m91",
+        "name": "Aberdeen University"
+      }
+    }
+  ],
+  "publisher": [
+    {
+      "@id": "https://ror.org/04xw4m193",
+      "@type": "Organization",
+      "name": "NERC EDS Environmental Information Data Centre",
+      "email": "info@eidc.ac.uk",
+      "identifier": "https://ror.org/04xw4m193"
+    }
+  ],
+  "recordSet": [
+    {
+      "@id": "rs-one-file",
+      "@type": "cr:RecordSet",
+      "name": "rs-one-file",
+      "description": "Daily and sub-daily hydrometeorological and soil moisture observations from COSMOS-UK",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "lwin",
+          "dataType": "sc:Float",
+          "cr:source": {
+            "cr:fileObject": { "@id": "cosmos-uk_balrd_hydrosoil_daily_2014-2023.csv" },
+            "cr:extract": { "cr:column": "LWIN"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "lwout",
+          "dataType": "sc:Float",
+          "cr:source": {
+            "cr:fileObject": { "@id": "cosmos-uk_balrd_hydrosoil_daily_2014-2023.csv" },
+            "cr:extract": { "cr:column": "LWOUT"}
+          }
+        }
+      ]
+    }
+  ]
+}
