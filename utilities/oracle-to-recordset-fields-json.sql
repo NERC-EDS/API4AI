@@ -5,10 +5,10 @@
 -- Not all Oracle data types have been mapped to schema.org data types, only those commonly used in BGS
 -- Rachel Heaven, BGS 2025-02-03   
 with table_data as (select 
-      'QL_ACD_ITEM_PT' as table_name,
-      'acditem' as table_abbr,
+      'MYTABLE' as table_name, -- Oracle table name
+      'mytableAbbr' as table_abbr, -- key to use for the table within croissant file as namespace for columns
       to_char(sysdate,'YYYYMMDD') as version_char,
-      'csv-items' as data_source_key
+      'mytableDataSource' as data_source_key -- reference to the key for the data source, defined in the croissant data outwith this script
       from dual) 
 select json_arrayagg (
     json_object (
