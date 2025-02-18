@@ -45,7 +45,7 @@
     "transform": "cr:transform"
   },
   "@type": "sc:Dataset",
-  "citeAs": "unsure",
+  "citeAs": "BGS Petrological Collection Database (Britrocks)",
   "version": "1.2.3",
   "name": "bgs-rock-thin-section-sample-images",
   "description": "Thin sections of rock samples held at BGS with pairs of plain and cross polarised images",
