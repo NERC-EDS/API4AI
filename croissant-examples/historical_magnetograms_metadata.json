@@ -1,0 +1,200 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+	  "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "citeAs": "British Geological Survey. (2013). UK Magnetic Observatory Magnetograms. British Geological Survey. (Dataset). https://doi.org/10.5285/4eeec93c-12e6-4244-9b99-52c61350f9aa",
+  "version": "1.2.3",
+  "name": "bgs-historical-magnetograms-images",
+  "description": "Scanned images of about 250 000 historical magnetograms on photographic paper — original recordings of the variations in the strength and direction of the Earth’s magnetic field",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "license": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+  "url": "https://www.bgs.ac.uk/information-hub/scanned-records/magnetograms/",
+  "creator" : [
+             {"@type": "Organization",
+             "name": "British Geological Survey"}],
+  "datePublished" : "2013-01-01",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "api-image-csv-1",
+      "name": "api-image-csv-1",
+      "contentUrl": "https://ogcapi.bgs.ac.uk/collections/magnetograms/magnetograms/items?f=csv&limit=100000&properties=component_code,start_date_year,end_date_year,observatory_code,front_filename,rear_filename",
+      "encodingFormat": "text/csv",
+	    "isLiveDataset" : "true",
+      "sha256": "TBD"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "api-image-csv-2",
+      "name": "api-image-csv-2",
+      "contentUrl": "https://ogcapi.bgs.ac.uk/collections/magnetograms/magnetograms/items?f=csv&limit=100000&offset=100000&properties=component_code,start_date_year,end_date_year,observatory_code,front_filename,rear_filename",
+      "encodingFormat": "text/csv",
+	    "isLiveDataset" : "true",
+      "sha256": "TBD"
+    },    {
+      "@type": "cr:FileObject",
+      "@id": "api-image-csv-3",
+      "name": "api-image-csv-3",
+      "contentUrl": "https://ogcapi.bgs.ac.uk/collections/magnetograms/magnetograms/items?f=csv&limit=100000&offset=200000&properties=component_code,start_date_year,end_date_year,observatory_code,front_filename,rear_filename",
+      "encodingFormat": "text/csv",
+	    "isLiveDataset" : "true",
+      "sha256": "TBD"
+    },
+	{
+      "@type": "cr:FileSet",
+      "@id": "csv-items",
+      "name": "csv-items",
+      "containedIn": [
+        { "@id": "api-image-csv-1"},
+		{ "@id": "api-image-csv-2"},
+		{ "@id": "api-image-csv-3"}
+      ],
+      "encodingFormat": "text/csv",
+      "includes": "*/*.csv"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "thin-section-images",
+      "name": "thin-section-images",
+	    "key": { "@id": "gsr/gsr_id" },
+      "description": "Index of thin section images with descriptive labels and urls to the image file",
+      "field": [
+		{
+			"@type": "cr:Field",
+			"@id": "bgs-magnetograms/observatory_code",
+			"name": "bgs-magnetograms/observatory_code",
+			"description": "A three digit IAGA code used to identify the observatory that the magnetogram was recorded at.",
+			"dataType": "sc:Text",
+			"source": {
+			  "fileSet": {
+				"@id": "csv-items"
+			  },
+			  "extract": {
+				"column": "observatory_code"
+			  }
+			}
+		  },
+		  {
+			"@type": "cr:Field",
+			"@id": "bgs-magnetograms/component_code",
+			"name": "bgs-magnetograms/component_code",
+			"description": "The code(s) of the magnetic components that were recorded.",
+			"dataType": "sc:Text",
+			"source": {
+			  "fileSet": {
+				"@id": "csv-items"
+			  },
+			  "extract": {
+				"column": "component_code"
+			  }
+			}
+		  },
+		  {
+			"@type": "cr:Field",
+			"@id": "bgs-magnetograms/front_filename",
+			"name": "bgs-magnetograms/front_filename",
+			"description": "The filename of the front scan of the magnetogram",
+			"dataType": "sc:Text",
+			"source": {
+			  "fileSet": {
+				"@id": "csv-items"
+			  },
+			  "extract": {
+				"column": "front_filename"
+			  }
+			}
+		  },
+		  {
+			"@type": "cr:Field",
+			"@id": "bgs-magnetograms/rear_filename",
+			"name": "bgs-magnetograms/rear_filename",
+			"description": "The filename of the rear scan of the magnetogram",
+			"dataType": "sc:Text",
+			"source": {
+			  "fileSet": {
+				"@id": "csv-items"
+			  },
+			  "extract": {
+				"column": "rear_filename"
+			  }
+			}
+		  },
+		  {
+			"@type": "cr:Field",
+			"@id": "bgs-magnetograms/start_date_year",
+			"name": "bgs-magnetograms/start_date_year",
+			"description": "The start date of this magnetogram,  in format YYYY .",
+			"dataType": "sc:Integer",
+			"source": {
+			  "fileSet": {
+				"@id": "csv-items"
+			  },
+			  "extract": {
+				"column": "start_date_year"
+			  }
+			}
+		  },
+		  {
+			"@type": "cr:Field",
+			"@id": "bgs-magnetograms/end_date_year",
+			"name": "bgs-magnetograms/end_date_year",
+			"description": "The end date of this magnetogram,  in format YYYY.",
+			"dataType": "sc:Integer",
+			"source": {
+			  "fileSet": {
+				"@id": "csv-items"
+			  },
+			  "extract": {
+				"column": "end_date_year"
+			  }
+			}
+		  }
+		]
+    }
+  ]
+}
