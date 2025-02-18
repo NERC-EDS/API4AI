@@ -5,11 +5,11 @@
 -- Not all Oracle data types have been mapped to schema.org data types, only those commonly used in BGS
 -- Rachel Heaven, BGS 2025-02-03   
 with table_data as (select 
-      'MYUSER' as table_owner, -- Oracle table owner
+      'MYOWNER' as table_owner, -- Oracle table owner
       'MYTABLE' as table_name, -- Oracle table name
-      'mytableAbbr' as table_abbr, -- key to use for the table within croissant file as namespace for columns
+      'mtableAbbr' as table_abbr, -- key to use for the table within croissant file as namespace for columns
       to_char(sysdate,'YYYYMMDD') as version_char,
-      'mytableDataSource' as data_source_key -- reference to the key for the data source, defined in the croissant data outwith this script
+      'myFileSetKey' as data_source_key -- reference to the key for the FileSet, defined in the croissant data outwith this script
       from dual) 
 select json_arrayagg (
     json_object (
@@ -20,7 +20,7 @@ select json_arrayagg (
         key 'dataType' value col_data_type_sc,
         key 'source' value json_object (
               key 'fileSet' value json_object (
-                                  key '@id' value 'csv-items' 
+                                  key '@id' value td.DATA_SOURCE_KEY 
                                   ),
               key 'extract' value json_object (
                                   key 'column' value col_name
@@ -31,6 +31,7 @@ select json_arrayagg (
 from table_data td join
 (select 
 tc.table_name,
+tc.owner,
 lower(tc.column_name) as col_name, 
 cc.comments as col_comments, 
 tc.data_type,
@@ -56,4 +57,4 @@ case tc.DATA_TYPE
         and cc.COLUMN_NAME=tc.COLUMN_NAME
    ) c 
   on td.table_name=c.table_name
-  where c.table_owner=td.table_owner
+  where c.owner=td.table_owner
