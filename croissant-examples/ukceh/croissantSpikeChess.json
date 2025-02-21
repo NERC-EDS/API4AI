@@ -17,7 +17,7 @@
   "@id": "c88921ba-f871-44c3-9339-51c5bee4024a_croissant",
   "@type": "sc:Dataset",
   "name": "Chess data",
-  "url": "https://catalogue.ceh.ac.uk/id/2ab15bf0-ad08-415c-ba64-831168be7293",
+  "url": "https://catalogue.ceh.ac.uk/documents/835a50df-e74f-4bfb-b593-804fd61d5eab",
   "dct:conformsTo": "http://mlcommons.org/croissant/1.0",
   "version": 1,
   "description": "a description here",
@@ -46,7 +46,7 @@
       "@type": "cr:FileObject",
       "@id": "chess-met_dtr_gb_1km_daily_19610101-19610131.nc",
       "sha256": "44d673f3222dcc817992dccbd5828ffb",
-      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/2ab15bf0-ad08-415c-ba64-831168be7293/dtr/chess-met_dtr_gb_1km_daily_19610101-19610131.nc",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/835a50df-e74f-4bfb-b593-804fd61d5eab/dtr/chess-met_dtr_gb_1km_daily_19610101-19610131.nc",
       "contentSize": "97151183 B",
       "encodingFormat": "application/x-netcdf"
     },
@@ -54,7 +54,7 @@
       "@type": "cr:FileObject",
       "@id": "chess-met_dtr_gb_1km_daily_19610201-19610228.nc",
       "sha256": "cfa2e8ce319956e7a8e132341c2e44bb",
-      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/2ab15bf0-ad08-415c-ba64-831168be7293/dtr/chess-met_dtr_gb_1km_daily_19610201-19610228.nc",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/835a50df-e74f-4bfb-b593-804fd61d5eab/dtr/chess-met_dtr_gb_1km_daily_19610201-19610228.nc",
       "contentSize": "88830479 B",
       "encodingFormat": "application/x-netcdf"
     },
@@ -62,7 +62,7 @@
       "@type": "cr:FileObject",
       "@id": "chess-met_dtr_gb_1km_daily_19610301-19610331.nc",
       "sha256": "cfa2e8ce319956e7a8e132341c2e44bb",
-      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/2ab15bf0-ad08-415c-ba64-831168be7293/dtr/chess-met_dtr_gb_1km_daily_19610301-19610331.nc",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/835a50df-e74f-4bfb-b593-804fd61d5eab/dtr/chess-met_dtr_gb_1km_daily_19610301-19610331.nc",
       "contentSize": "97151183 B",
       "encodingFormat": "application/x-netcdf"
     },
@@ -112,17 +112,17 @@
   ],
   "recordSet": [
     {
-      "@id": "rs/file-set-dtr-january1961",
+      "@id": "rs-abberfraw",
       "@type": "cr:RecordSet",
       "name": "file-set-dtr-january1961",
       "description": "Netcdf files for the dtr variable for 1961",
       "field": [
         {
           "@type": "cr:Field",
-          "@id": "dtr-1961/test",
+          "@id": "dtr-1961-test",
           "dataType": "sc:Float",
           "cr:source": {
-            "cr:fileSet": { "@id": "file-set-dtr-january1961" },
+            "cr:fileObject": { "@id": "chess-met_dtr_gb_1km_daily_19610201-19610228.nc" },
             "extract": {
                 "type": "netcdf",
                 "variables": ["dtr"],
