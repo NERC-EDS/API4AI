@@ -1,0 +1,157 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+	  "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:FileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@id": "beb62085-ba81-480c-9ed0-2d31c27ff196_croissant",
+  "@type": "sc:Dataset",
+  "name": "Dunes data",
+  "url": "https://catalogue.ceh.ac.uk/documents/972599af-0cc3-4e0e-a4dc-2fab7a6dfc85",
+  "dct:conformsTo": "http://mlcommons.org/croissant/1.0",
+  "version": 1,
+  "description": "This data contains values of bare sand area, modelled wind speed, aspect and slope at a 2.5 m spatial resolution for four UK coastal dune fields, Abberfraw (Wales), Ainsdale (England), Morfa Dyffryn (Wales), Penhale (England). Data is stored as a .csv file. Data is available for 620,756.25 m2 of dune at Abberfraw, 550,962.5 m2 of dune at Ainsdale, 1,797,756.25 m2 of dune at Morfa Dyffryn and 2,275,056.25 m2 of dune at Penhale. All values were calculated from aerial imagery and digital terrain models collected between 2014 and 2016.",
+  "citeAs": "Smyth, T.A.G. (2022). Bare sand, wind speed, aspect and slope at four English and Welsh coastal sand dunes, 2014-2016. NERC EDS Environmental Information Data Centre. https://doi.org/10.5285/972599af-0cc3-4e0e-a4dc-2fab7a6dfc85",
+  "datePublished": "2022-11-15",
+  "license": [
+    {
+      "@type": "CreativeWork",
+      "name": "This resource is available under the terms of the Open Government Licence",
+      "license": "http://eidc.ceh.ac.uk/admin/licences/OGL/plain"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Open Government Licence v3",
+      "alternateName": "OGL-UK-3.0",
+      "license": "https://spdx.org/licenses/OGL-UK-3.0.html"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "This resource is available under the terms of the Open Government Licence",
+      "license": "https://eidc.ceh.ac.uk/licences/NPNN/plain"
+    }
+  ],
+  "distribution": [
+    {
+      "@type": "fileObject",
+      "@id": "972599af-0cc3-4e0e-a4dc-2fab7a6dfc85.zip",
+      "sha256": "8cf4aed6dffa9c6c7437517717417c4b3067a797ddc7aa13c5c072163d82743c",
+      "contentUrl": "https://data-package.ceh.ac.uk/data/972599af-0cc3-4e0e-a4dc-2fab7a6dfc85.zip",
+      "contentSize": "20986517 B",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "fileObject",
+      "@id": "abberfraw",
+      "name": "abberfraw",
+      "description": "Abberfraw predictor layers",
+      "contentUrl": "972599af-0cc3-4e0e-a4dc-2fab7a6dfc85/data/abberfrawpredictorlayers.csv",
+      "containedIn": { "@id": "972599af-0cc3-4e0e-a4dc-2fab7a6dfc85.zip" },
+      "sc:encodingFormat": "text/csv"
+    }
+  ],
+  "recordSet": [
+    {
+      "@id": "rs-abberfraw",
+      "@type": "cr:RecordSet",
+      "name": "rs-abberfraw",
+      "description": "Abberfraw predictor layers",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "id",
+          "dataType": "sc:Integer",
+          "cr:source": {
+            "cr:fileObject": { "@id": "abberfraw" },
+            "cr:extract": { "cr:column": "id"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "X",
+          "dataType": "sc:Float",
+          "cr:source": {
+            "cr:fileObject": { "@id": "abberfraw" },
+            "cr:extract": { "cr:column": "X"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "Y",
+          "dataType": "sc:Float",
+          "cr:source": {
+            "cr:fileObject": { "@id": "abberfraw" },
+            "cr:extract": { "cr:column": "Y"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "Aspect",
+          "dataType": "sc:Float",
+          "cr:source": {
+            "cr:fileObject": { "@id": "abberfraw" },
+            "cr:extract": { "cr:column": "Aspect"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "Slope",
+          "dataType": "sc:Float",
+          "cr:source": {
+            "cr:fileObject": { "@id": "abberfraw" },
+            "cr:extract": { "cr:column": "Slope"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "WindSpeed",
+          "dataType": "sc:Float",
+          "cr:source": {
+            "cr:fileObject": { "@id": "abberfraw" },
+            "cr:extract": { "cr:column": "WindSpeed"}
+          }
+        }
+      ]
+    }
+  ]
+}
