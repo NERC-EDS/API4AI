@@ -1,0 +1,3122 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "sc": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "dct": "http://purl.org/dc/terms/",
+    "wd": "http://www.wikidata.org/wiki/",
+    "citeAs": "cr:citeAs"
+  },
+  "@id": "399ed9b1-bf59-4d85-9832-ee4d29f49bfb_croissant",
+  "@type": "sc:Dataset",
+  "name": "Daily and sub-daily hydrometeorological and soil data (2013-2023) [COSMOS-UK]",
+  "url": "https://catalogue.ceh.ac.uk/id/399ed9b1-bf59-4d85-9832-ee4d29f49bfb",
+  "dct:conformsTo": "http://mlcommons.org/croissant/1.0",
+  "version": 1,
+  "description": "This dataset contains daily and sub-daily hydrometeorological and soil moisture observations from COSMOS-UK (cosmic-ray soil moisture) monitoring network from October 2013 to the end of 2023. These data are from 51 sites across the UK recording a range of hydrometeorological and soil variables. Each site in the network records the following hydrometeorological and soil data at 30-minute resolution: Radiation (short wave, long wave, and net), precipitation, atmospheric pressure, air temperature, wind speed and direction, humidity, soil heat flux, and soil temperature and volumetric water content (VWC), measured by point sensors at various depths. Each site hosts a cosmic-ray sensing probe; a novel sensor technology which counts fast neutrons in the surrounding atmosphere. In combination with the recorded hydrometeorological data, neutron counts are used to derive VWC over a field scale (COSMOS VWC), provide at daily resolution. The presence of snow leads to erroneously high measurements of COSMOS VWC due to all the extra water in the surrounding area. Included in the daily data are indications of snow days, on which, the COSMOS VWC are adjusted, and the snow water equivalent (SWE) is given. The potential evapotranspiration (PE), derived from recorded hydrometeorological and soil are also included at daily resolution. Two levels of quality control are carried out, firstly data is run through a series of automated checks, such as range tests and spike tests, and then all data is manually inspected each week where any other faults are picked up, including sensor faults or connection issues. Quality control flags are provided for all recorded (30 minute) data, indicating the reason for any missing data. This work was supported by the Natural Environment Research Council award number NE/R016429/1 as part of the UK-SCAPE programme delivering National Capability.",
+  "citeAs": "@Article{10.5285/399ed9b1-bf59-4d85-9832-ee4d29f49bfb,doi = 'https://doi.org/10.5285/399ed9b1-bf59-4d85-9832-ee4d29f49bfb',url = 'https://doi.org/10.5285/399ed9b1-bf59-4d85-9832-ee4d29f49bfb',author = 'Smith, R. AND Antoniou, V. AND Askquith-Ellis, A. AND Ball, L.A. AND Bennett, E.S. AND Blake, J.R. AND Boorman, D.B. AND Brooks, M. AND Clarke, M. AND Cooper, H.M. AND Cowan, N. AND Cumming, A. AND Evans, J.G. AND Farrand, P. AND Fry, M. AND Harvey, D. AND Houghton-Carr, H. AND Howson, T. AND Jiménez-Arranz, G. AND Keen, Y. AND Khamis, D. AND Leeson, S. AND Lord, W.D. AND Morrison, R. AND Nash, G.V. AND O'Callaghan, F. AND Rylett, D. AND Scarlett, P.M. AND St Quintin, P. AND Stanley, S. AND Swain, O.D. AND Szczykulska, M. AND Teagle, S. AND Thornton, J.L. AND Trill, E.J. AND Vincent, P. AND Ward, H.C. AND Warwick, A.C. AND Winterbourn, J.B.',publisher = 'NERC EDS Environmental Information Data Centre',title = 'Daily and sub-daily hydrometeorological and soil data (2013-2023) [COSMOS-UK]',year = '2024'}",
+  "datePublished": "2024-04-08",
+  "license": [
+    {
+      "@type": "CreativeWork",
+      "name": "Open Government Licence v3",
+      "alternateName": "OGL-UK-3.0",
+      "license": "https://spdx.org/licenses/OGL-UK-3.0.html"
+    }
+  ],
+  "distribution": [
+    {
+      "@type": "cr:FileSet",
+      "@id": "dailysoil_data",
+      "name": "Sub-hourly hydrometeorological and soil data",
+      "description": "A range of hydrometeorological and soil data at 30 minute resolution over the period October 2013   December 2023. Missing values are given as -9999. The <SITE_ID> given in the filename identifies the site from the COSMOS-UK network where the data were measured",
+      "sc:encodingFormat": "application/csv",
+      "cr:includes": "COSMOS-UK_*_HydroSoil_SH_*-2023.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "dailysoil_flags",
+      "name": "The data flags include information about the data value, mainly whether it is infilled or estimated",
+      "description": "",
+      "sc:encodingFormat": "application/csv",
+      "cr:includes": "COSMOS-UK_*_HydroSoil_SH_*-2023_flags.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "dailysoil_qc",
+      "name": "Sub-hourly quality control flags dataset",
+      "description": "Data that fails QC -The QC flags explain why a data value was removed. They hold no information about the data present in the files, only the flagged results of automated quality control tests. If a non-zero QC flag has a corresponding data value, this implies that value was infilled or estimated",
+      "sc:encodingFormat": "application/csv",
+      "cr:includes": "COSMOS-UK_*_HydroSoil_SH_*-2023_qc_flags.csv"
+    },
+
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_alic1_hydrosoil_daily_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "908b3be9caf0f71715c2a455c6bea42e",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_alic1_hydrosoil_daily_2015-2023.csv",
+      "contentSize": "931762 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_alic1_hydrosoil_daily_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "39d7db69fc25666c4a0e518d6e5615cd",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_alic1_hydrosoil_daily_2015-2023_flags.csv",
+      "contentSize": "294124 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_alic1_hydrosoil_sh_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "fb0fb3f516a807aa797d8dc8b3f4f58e",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_alic1_hydrosoil_sh_2015-2023.csv",
+      "contentSize": "46714410 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_alic1_hydrosoil_sh_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "5b60b4243e58709a04f1536381586e54",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_alic1_hydrosoil_sh_2015-2023_flags.csv",
+      "contentSize": "14651680 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_alic1_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "b0dfa6a887f75f8d8c1fd800ff8fd805",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_alic1_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "contentSize": "34194740 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_balrd_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "bae2ae44aa6a0994d863709e83add8b6",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_balrd_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "1016008 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_balrd_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "709ec14410b8f3a4968e4d0fe67a57b1",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_balrd_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "322496 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_balrd_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "b53d2b738adeeaaf39432098fb3afd23",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_balrd_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "51767941 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_balrd_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "fac44e0f3d7d5489dbcbecedbb031953",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_balrd_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "15582150 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_balrd_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "2a79c3d3627d85ff7c6a3e8bf4de4720",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_balrd_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "37405929 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_bickl_hydrosoil_daily_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "0c13380c86e622758f1e1410ba233ec1",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_bickl_hydrosoil_daily_2015-2023.csv",
+      "contentSize": "940646 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_bickl_hydrosoil_daily_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "2793c6b2e1892fcfa9411f70fb61ed52",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_bickl_hydrosoil_daily_2015-2023_flags.csv",
+      "contentSize": "296667 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_bickl_hydrosoil_sh_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "35564cea08437e2976c879239127bd5a",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_bickl_hydrosoil_sh_2015-2023.csv",
+      "contentSize": "47616769 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_bickl_hydrosoil_sh_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "7a225481236e9d5ceb94b87355900ab1",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_bickl_hydrosoil_sh_2015-2023_flags.csv",
+      "contentSize": "14343840 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_bickl_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "e478cdc705257bb8d98ff67eb7a9ec96",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_bickl_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "contentSize": "34505859 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_bunny_hydrosoil_daily_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "807d5907a60526956782b4a5b92ce7c1",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_bunny_hydrosoil_daily_2015-2023.csv",
+      "contentSize": "940151 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_bunny_hydrosoil_daily_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "404ccb42de75d8c24ed00c2e55303bda",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_bunny_hydrosoil_daily_2015-2023_flags.csv",
+      "contentSize": "295809 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_bunny_hydrosoil_sh_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "bef3b27838b76f7cf192e4a0357d161e",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_bunny_hydrosoil_sh_2015-2023.csv",
+      "contentSize": "47840697 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_bunny_hydrosoil_sh_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "b5c8e560bb5d18c5b78bad32df7ee1bb",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_bunny_hydrosoil_sh_2015-2023_flags.csv",
+      "contentSize": "14275795 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_bunny_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "e9f88a0cc4c85f9b8613d0b8305fbc84",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_bunny_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "contentSize": "34522014 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_cardt_hydrosoil_daily_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "7fa721373e0315de46c8a2580f887fb6",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_cardt_hydrosoil_daily_2015-2023.csv",
+      "contentSize": "899130 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_cardt_hydrosoil_daily_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "93970960f4d880027553c593ef515c1c",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_cardt_hydrosoil_daily_2015-2023_flags.csv",
+      "contentSize": "283449 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_cardt_hydrosoil_sh_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "81d63de16c03dbf58b57667dcb6fd054",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_cardt_hydrosoil_sh_2015-2023.csv",
+      "contentSize": "45715627 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_cardt_hydrosoil_sh_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "e3df9af2e14f8239ccf1ebedea3878c5",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_cardt_hydrosoil_sh_2015-2023_flags.csv",
+      "contentSize": "13680889 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_cardt_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "efb69b7e3b9d6188d097384999cb1b7d",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_cardt_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "contentSize": "32982116 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_cgarw_hydrosoil_daily_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "3bae90e4a87ac828f4779ce16caf6d64",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_cgarw_hydrosoil_daily_2016-2023.csv",
+      "contentSize": "740181 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_cgarw_hydrosoil_daily_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "9abee575c60ce75438b0ffd93c5ca08d",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_cgarw_hydrosoil_daily_2016-2023_flags.csv",
+      "contentSize": "208727 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_cgarw_hydrosoil_sh_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "3dae6a7b0db4214013659dfd71f751d8",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_cgarw_hydrosoil_sh_2016-2023.csv",
+      "contentSize": "39483738 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_cgarw_hydrosoil_sh_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "87a1933de01f5fe29eb57540bf181537",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_cgarw_hydrosoil_sh_2016-2023_flags.csv",
+      "contentSize": "10023953 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_cgarw_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "938990688725ba111cc41dc6b09b99ad",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_cgarw_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "contentSize": "26965255 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_chimn_hydrosoil_daily_2013-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "07ff0a0dfc996b4274cf2dddb5418972",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_chimn_hydrosoil_daily_2013-2023.csv",
+      "contentSize": "1044629 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_chimn_hydrosoil_daily_2013-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "6c2d57dd5cca1c246d398f29cc939ca1",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_chimn_hydrosoil_daily_2013-2023_flags.csv",
+      "contentSize": "315422 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_chimn_hydrosoil_sh_2013-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "d2f18c6265582b3c74faf9b190b7a0e6",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_chimn_hydrosoil_sh_2013-2023.csv",
+      "contentSize": "53662237 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_chimn_hydrosoil_sh_2013-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "79e40f06ded1807128124b58b5cd7b20",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_chimn_hydrosoil_sh_2013-2023_flags.csv",
+      "contentSize": "15567736 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_chimn_hydrosoil_sh_2013-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "618e86db1f22e0d02e8137f7dcedc76a",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_chimn_hydrosoil_sh_2013-2023_qc_flags.csv",
+      "contentSize": "38577694 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_chobh_hydrosoil_daily_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "c0598ed6902e73cba1515e857ffbe193",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_chobh_hydrosoil_daily_2015-2023.csv",
+      "contentSize": "932488 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_chobh_hydrosoil_daily_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "6eeae1d858b9d434ea3d582716f72b33",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_chobh_hydrosoil_daily_2015-2023_flags.csv",
+      "contentSize": "293063 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_chobh_hydrosoil_sh_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "8cf479ecd150e8b1f4220dd55ec258d8",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_chobh_hydrosoil_sh_2015-2023.csv",
+      "contentSize": "47535582 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_chobh_hydrosoil_sh_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "f4739020837f6378df7b958b272aaf94",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_chobh_hydrosoil_sh_2015-2023_flags.csv",
+      "contentSize": "14164724 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_chobh_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "d903a2bb8a38be069bcaa734ee0dd658",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_chobh_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "contentSize": "34217739 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_cochn_hydrosoil_daily_2017-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "34e08714181d6a37420f2949cabb494d",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_cochn_hydrosoil_daily_2017-2023.csv",
+      "contentSize": "675577 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_cochn_hydrosoil_daily_2017-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "08312bc3e2c38f4c71ccf29b720029cb",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_cochn_hydrosoil_daily_2017-2023_flags.csv",
+      "contentSize": "219510 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_cochn_hydrosoil_sh_2017-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "f0511e36915b77de30c15f13f576a67b",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_cochn_hydrosoil_sh_2017-2023.csv",
+      "contentSize": "33207841 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_cochn_hydrosoil_sh_2017-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "4e7cb7384e35d9889e7f0d4b589ab7e8",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_cochn_hydrosoil_sh_2017-2023_flags.csv",
+      "contentSize": "10600968 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_cochn_hydrosoil_sh_2017-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "470bd2332f9b9487bc878ce8f58079f6",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_cochn_hydrosoil_sh_2017-2023_qc_flags.csv",
+      "contentSize": "21689283 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_coclp_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "c17515045ff62d63af1825299a0f6e06",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_coclp_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "958733 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_coclp_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "9a87487711c8d35512fc0d32b6efca30",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_coclp_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "304726 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_coclp_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "5e44f1c8ab2fc07248c9cc86d3e936c3",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_coclp_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "48866648 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_coclp_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "7b24f9c34476fbffeed90ac316619a7f",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_coclp_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "14669026 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_coclp_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "f372288935838f6f23ad922fb55bc420",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_coclp_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "35260783 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_crich_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "fa06b1ed380066a70f0a51e84540a077",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_crich_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "959386 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_crich_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "414d6421eb2c152f6934c8b32a0a63fb",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_crich_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "304165 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_crich_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "3e7bf827bc6b98d1fcc09cc4f994b003",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_crich_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "48529519 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_crich_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "9d482b79efbdd33bc52301bda5b5357f",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_crich_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "14694535 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_crich_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "8c795adc9ab157f8ac68575a8f0da04e",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_crich_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "35116100 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_eastb_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "87ef4348a3951a841193ebfd0b043c7f",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_eastb_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "989341 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_eastb_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "661bbcc199e70d2674262e3deadd28cd",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_eastb_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "312820 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_eastb_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "69f27f922f1242eedf6aadae55ba049d",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_eastb_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "50243001 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_eastb_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "5d93f7878a0080ac6810a7d1793f0617",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_eastb_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "15043569 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_eastb_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "330ade3a1fa03f0030a5fbe55f359b27",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_eastb_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "36470151 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_elmst_hydrosoil_daily_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "5fe79e7f34467fa6dcc2d400f079f465",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_elmst_hydrosoil_daily_2016-2023.csv",
+      "contentSize": "725143 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_elmst_hydrosoil_daily_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "499fdcd05e9ee3cc807097db94d17c0a",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_elmst_hydrosoil_daily_2016-2023_flags.csv",
+      "contentSize": "201083 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_elmst_hydrosoil_sh_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "7610fee3c5c2480e96420964f8c53225",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_elmst_hydrosoil_sh_2016-2023.csv",
+      "contentSize": "39021638 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_elmst_hydrosoil_sh_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "18463ce89e3575f51239094b78bc0481",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_elmst_hydrosoil_sh_2016-2023_flags.csv",
+      "contentSize": "9732110 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_elmst_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "313ee3eb89b37673943f48dce79bca54",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_elmst_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "contentSize": "26388106 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_eustn_hydrosoil_daily_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "3a148ef149e22de71b9a406e307b11e2",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_eustn_hydrosoil_daily_2016-2023.csv",
+      "contentSize": "750292 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_eustn_hydrosoil_daily_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "b9bf733601862ae5c9244464ae8b5d6d",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_eustn_hydrosoil_daily_2016-2023_flags.csv",
+      "contentSize": "214247 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_eustn_hydrosoil_sh_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "b20504fb88266273096d2a5af1c7a015",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_eustn_hydrosoil_sh_2016-2023.csv",
+      "contentSize": "40325369 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_eustn_hydrosoil_sh_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "8e2fe5d108c6c344865a79ce1fed48f8",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_eustn_hydrosoil_sh_2016-2023_flags.csv",
+      "contentSize": "10315717 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_eustn_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "29ab2b1700f397ce26212b99b4e95eb7",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_eustn_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "contentSize": "27728579 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_finch_hydrosoil_daily_2017-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "c6081a01d08c30a260ff3aff0a88116e",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_finch_hydrosoil_daily_2017-2023.csv",
+      "contentSize": "640711 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_finch_hydrosoil_daily_2017-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "835c6c8365a24623f120207673ee45c1",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_finch_hydrosoil_daily_2017-2023_flags.csv",
+      "contentSize": "178814 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_finch_hydrosoil_sh_2017-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "e697c75e2c612b1e2b6cb30e1cdf481e",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_finch_hydrosoil_sh_2017-2023.csv",
+      "contentSize": "34458633 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_finch_hydrosoil_sh_2017-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "7909a5518a041bd9e6fbc32333e980f3",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_finch_hydrosoil_sh_2017-2023_flags.csv",
+      "contentSize": "8638109 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_finch_hydrosoil_sh_2017-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "42d0273476e3d753da5349fbbf0b8d4b",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_finch_hydrosoil_sh_2017-2023_qc_flags.csv",
+      "contentSize": "23429806 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_fivet_hydrosoil_daily_2018-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "6f58de3c08c6ef4601051e60f5214201",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_fivet_hydrosoil_daily_2018-2023.csv",
+      "contentSize": "539103 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_fivet_hydrosoil_daily_2018-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "a9d86f56c8bb7790e672b05b7ac08128",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_fivet_hydrosoil_daily_2018-2023_flags.csv",
+      "contentSize": "151407 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_fivet_hydrosoil_sh_2018-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "6e33e37b5c7339a70376a152e9a25e30",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_fivet_hydrosoil_sh_2018-2023.csv",
+      "contentSize": "28962828 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_fivet_hydrosoil_sh_2018-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "359216571d6be79c0e84afd95e7386a7",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_fivet_hydrosoil_sh_2018-2023_flags.csv",
+      "contentSize": "7291186 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_fivet_hydrosoil_sh_2018-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "e672fd756f2b9d4494ab985906adb8c6",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_fivet_hydrosoil_sh_2018-2023_qc_flags.csv",
+      "contentSize": "19593511 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_gisbn_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "2589844abe6e71c144f6ef63855cd648",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_gisbn_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "980727 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_gisbn_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "98392f1ea4db5d8570ea6220fd4aeb80",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_gisbn_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "307186 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_gisbn_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "734682ebfbb9521eec9d780dbd4ecd7e",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_gisbn_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "50199798 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_gisbn_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "5a9f31e71bcc53ef998e079a1978c0f6",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_gisbn_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "14829753 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_gisbn_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "e67f724cb200c259832df8691509292e",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_gisbn_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "36252604 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_glens_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "10b32ad6ee5ad40dbf0e7100eb9f4057",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_glens_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "1007892 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_glens_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "9ff9d21a9cd9000776ef2bfc92766b7d",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_glens_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "319454 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_glens_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "17535287c381df1306a5205cc0cc6138",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_glens_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "51458723 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_glens_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "3ed8de188c9af2d5885708746409cb1c",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_glens_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "15375011 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_glens_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "be6ad810a7caa7756f1ce7696654efbb",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_glens_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "37320418 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_glenw_hydrosoil_daily_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "91270e8cd317ec8a64bfc36adddb50f1",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_glenw_hydrosoil_daily_2016-2023.csv",
+      "contentSize": "737308 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_glenw_hydrosoil_daily_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "680a8458e975eb3606a4740e3cbae5fd",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_glenw_hydrosoil_daily_2016-2023_flags.csv",
+      "contentSize": "210061 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_glenw_hydrosoil_sh_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "c2e6efc07dfc78a55e0156c6f2d91767",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_glenw_hydrosoil_sh_2016-2023.csv",
+      "contentSize": "39534486 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_glenw_hydrosoil_sh_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "8726c245e8a6003d1011312c8018ad2f",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_glenw_hydrosoil_sh_2016-2023_flags.csv",
+      "contentSize": "10131817 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_glenw_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "ea11b7457fb47466d3a28cc75cf25b81",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_glenw_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "contentSize": "27115655 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hadlw_hydrosoil_daily_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "e10bb6eea363dc56a89cf095ec3ca58b",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hadlw_hydrosoil_daily_2016-2023.csv",
+      "contentSize": "705788 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hadlw_hydrosoil_daily_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "e061d9ab0f0842cedf045272505d7535",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hadlw_hydrosoil_daily_2016-2023_flags.csv",
+      "contentSize": "197462 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hadlw_hydrosoil_sh_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "1a08b89fe61d637b938e104a6db73c55",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hadlw_hydrosoil_sh_2016-2023.csv",
+      "contentSize": "37772409 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hadlw_hydrosoil_sh_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "758f857fe61ee43b984525ed704b3b94",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hadlw_hydrosoil_sh_2016-2023_flags.csv",
+      "contentSize": "9544985 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hadlw_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "27883b3bfefa51022725feabf2e28f70",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hadlw_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "contentSize": "25649882 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hartw_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "a323eb26ca72988ddfb12832dcdfadbc",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hartw_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "1011428 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hartw_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "b30971665f243c5b6442041ee87b53b3",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hartw_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "321725 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hartw_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "b789ee680310d3f694ce53e2d4560fac",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hartw_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "51442825 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hartw_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "75687142968bcd4e08c589a42f327dbe",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hartw_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "15536761 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hartw_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "5a935d65b8a24d42eb681a85ba13610f",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hartw_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "37253350 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_harwd_hydrosoil_daily_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "472fbce92ba3b65ab56ae9aec80fb0e4",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_harwd_hydrosoil_daily_2015-2023.csv",
+      "contentSize": "913411 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_harwd_hydrosoil_daily_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "48773adc5859eeaf09d1224ec88d120f",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_harwd_hydrosoil_daily_2015-2023_flags.csv",
+      "contentSize": "301418 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_harwd_hydrosoil_sh_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "6dad46cd2f529e594afff4bf264a08dd",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_harwd_hydrosoil_sh_2015-2023.csv",
+      "contentSize": "45080754 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_harwd_hydrosoil_sh_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "084466593cdefa8f572aa1195a0fdad8",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_harwd_hydrosoil_sh_2015-2023_flags.csv",
+      "contentSize": "14871352 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_harwd_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "c32ed17d909005f3e3eaef9abf4958f6",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_harwd_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "contentSize": "31353170 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_henfs_hydrosoil_daily_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "10bab09f49ba1cb685f3f11f5b644fec",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_henfs_hydrosoil_daily_2015-2023.csv",
+      "contentSize": "844764 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_henfs_hydrosoil_daily_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "8fd867612c18c1e8a461a8c5276799ed",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_henfs_hydrosoil_daily_2015-2023_flags.csv",
+      "contentSize": "268607 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_henfs_hydrosoil_sh_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "17d4d460ff5d4ba05124dbc3899d1cea",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_henfs_hydrosoil_sh_2015-2023.csv",
+      "contentSize": "43079329 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_henfs_hydrosoil_sh_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "8563a6495515e9ea2aa3c4639b33262b",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_henfs_hydrosoil_sh_2015-2023_flags.csv",
+      "contentSize": "12968603 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_henfs_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "b352bae591a624ee74020b200e4b4451",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_henfs_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "contentSize": "31023131 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hillb_hydrosoil_daily_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "8c173768872bbabe9dfabc7d088e995a",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hillb_hydrosoil_daily_2016-2023.csv",
+      "contentSize": "745944 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hillb_hydrosoil_daily_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "801bd0e4329fa28608d63868030ba85c",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hillb_hydrosoil_daily_2016-2023_flags.csv",
+      "contentSize": "213071 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hillb_hydrosoil_sh_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "bdbca78825b77496bdbe021b7981a914",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hillb_hydrosoil_sh_2016-2023.csv",
+      "contentSize": "39691438 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hillb_hydrosoil_sh_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "fa10081553cb12c233ad715d02190439",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hillb_hydrosoil_sh_2016-2023_flags.csv",
+      "contentSize": "10299218 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hillb_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "7adfc9291353f5427a0cb1cfada38a2a",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hillb_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "contentSize": "27140691 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hlacy_hydrosoil_daily_2018-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "0ed65e37c33d3e29f07032240a552d1a",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hlacy_hydrosoil_daily_2018-2023.csv",
+      "contentSize": "558877 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hlacy_hydrosoil_daily_2018-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "c36a9ded9664a0c8d83f10f33043f16a",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hlacy_hydrosoil_daily_2018-2023_flags.csv",
+      "contentSize": "156928 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hlacy_hydrosoil_sh_2018-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "6bcf1362b085531099aaf6230c8926c3",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hlacy_hydrosoil_sh_2018-2023.csv",
+      "contentSize": "29967277 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hlacy_hydrosoil_sh_2018-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "0d4ed6155fcb39a6f2517de04d451456",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hlacy_hydrosoil_sh_2018-2023_flags.csv",
+      "contentSize": "7590640 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hlacy_hydrosoil_sh_2018-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "ce882a4be8aca8c43dec8c9489de8be5",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hlacy_hydrosoil_sh_2018-2023_qc_flags.csv",
+      "contentSize": "20358262 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_holln_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "5638f535b6062f2ca76d248b6c558949",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_holln_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "1029519 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_holln_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "a5a7d400991064664d4dff0589fbfef4",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_holln_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "324271 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_holln_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "1a70837b68bdcd6eca808bc1d2b26e3b",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_holln_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "52377236 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_holln_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "6d90f27dca5bc9d9919a06bb7f410089",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_holln_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "15631153 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_holln_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "3e11bfe837bba12e4e814438eb805870",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_holln_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "37806233 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hybry_hydrosoil_daily_2017-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "b104a29f034a8d36354d307e32f9bae9",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hybry_hydrosoil_daily_2017-2023.csv",
+      "contentSize": "626168 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hybry_hydrosoil_daily_2017-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "77f4a71c8e9658f543dc6db10de428ee",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hybry_hydrosoil_daily_2017-2023_flags.csv",
+      "contentSize": "178450 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hybry_hydrosoil_sh_2017-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "d39c476bec6ce6b5d97d413c0d201bda",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hybry_hydrosoil_sh_2017-2023.csv",
+      "contentSize": "33455854 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hybry_hydrosoil_sh_2017-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "cef133a6ac8a73891c232541611e3f1c",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hybry_hydrosoil_sh_2017-2023_flags.csv",
+      "contentSize": "8620411 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_hybry_hydrosoil_sh_2017-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "967e1ee1e129591969e8eec0a7a48db9",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_hybry_hydrosoil_sh_2017-2023_qc_flags.csv",
+      "contentSize": "22839878 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_lizrd_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "57a21b6670c2e077e511604d7599a198",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_lizrd_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "972788 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_lizrd_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "3193778fd4e182e2cc730eecf6ecf319",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_lizrd_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "305117 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_lizrd_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "e4f1ac156d329bd51c2691adaedafe02",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_lizrd_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "49431702 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_lizrd_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "36ceba18056e7674aeae0c3608f8b2ad",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_lizrd_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "14748328 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_lizrd_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "77fbf2e7e9661b074130858fdf6a2e7d",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_lizrd_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "35576070 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_lodtn_hydrosoil_daily_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "1ae2a745c22e8bd7057d54a278a9b59a",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_lodtn_hydrosoil_daily_2016-2023.csv",
+      "contentSize": "755831 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_lodtn_hydrosoil_daily_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "c733ed1c231826460fbfb942c30f842c",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_lodtn_hydrosoil_daily_2016-2023_flags.csv",
+      "contentSize": "213134 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_lodtn_hydrosoil_sh_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "58979cc2d9f8a589ecd605cc5c24882e",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_lodtn_hydrosoil_sh_2016-2023.csv",
+      "contentSize": "40484543 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_lodtn_hydrosoil_sh_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "7a94d1065e9ef66a4a476a78f76deabf",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_lodtn_hydrosoil_sh_2016-2023_flags.csv",
+      "contentSize": "10297033 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_lodtn_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "78942cac35f0cd3bb64c1b6b7de82e64",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_lodtn_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "contentSize": "27629592 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_lulln_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "3a5bce0fa9bee3ee8bf268bd8029dd1c",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_lulln_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "955445 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_lulln_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "1420d90be3b44e9e49fc3bcf54d7db03",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_lulln_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "301366 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_lulln_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "d1feaa6603b57759ef179092f42e7e82",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_lulln_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "48179765 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_lulln_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "26b84073d23addf18945a731c18eab39",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_lulln_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "14621320 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_lulln_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "8ae425e78d0217fdaeec67a3647890f2",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_lulln_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "35055768 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_moorh_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "894e1510fc194663a04f1d8a864589c8",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_moorh_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "946638 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_moorh_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "3f8bc1d8c20f7745266fe394b857e021",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_moorh_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "299262 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_moorh_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "feffb95c0eec1df7b7e21bf7b3b95135",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_moorh_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "48474488 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_moorh_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "912b5b9c56892e2cd8b506e2f9975cb3",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_moorh_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "14424217 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_moorh_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "0b37286e3a85e4405e3a002f72377bdb",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_moorh_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "35073338 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_morem_hydrosoil_daily_2018-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "e2da390b99c5b1fc94c7a8a6c1e7cfae",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_morem_hydrosoil_daily_2018-2023.csv",
+      "contentSize": "503758 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_morem_hydrosoil_daily_2018-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "6283dbcf304737bd2f98648b6ee1c30c",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_morem_hydrosoil_daily_2018-2023_flags.csv",
+      "contentSize": "140969 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_morem_hydrosoil_sh_2018-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "576815c23d93808f0f9a21d57a67c7d9",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_morem_hydrosoil_sh_2018-2023.csv",
+      "contentSize": "26938515 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_morem_hydrosoil_sh_2018-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "dc219766957fd894a5b4f14b5522b6b3",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_morem_hydrosoil_sh_2018-2023_flags.csv",
+      "contentSize": "6813980 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_morem_hydrosoil_sh_2018-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "f4de9e2aed7e650a482726511229a3f3",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_morem_hydrosoil_sh_2018-2023_qc_flags.csv",
+      "contentSize": "18251400 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_morly_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "0e08384bd5cfbbe0da1107819a3197e1",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_morly_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "1016899 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_morly_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "8a0ef63d80910752d459761b691f89a2",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_morly_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "319156 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_morly_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "646987856cda2d648ecc6e342323780c",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_morly_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "51785483 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_morly_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "3271ed62eaa72d9c9493da1fe9180684",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_morly_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "15446631 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_morly_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "aa13d78d8e0a1076d33bda7bd263b984",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_morly_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "37304813 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_nwyke_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "1c9278acc8eaa14f85b4d415192ece49",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_nwyke_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "969298 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_nwyke_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "756ecbec782006516bad88cb38fde3b9",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_nwyke_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "305171 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_nwyke_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "f42203b18fc396d8f926ff3d0dd372db",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_nwyke_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "49360958 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_nwyke_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "41421f55ddfd94f5e6027775be6c456c",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_nwyke_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "14747437 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_nwyke_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "c496590113a9b682cd4cf14a27d8e4e9",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_nwyke_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "35599269 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_plynl_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "36ac747f25a7a19ebdbe9f6a45a662cf",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_plynl_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "958259 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_plynl_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "9e23389d31d7a7e24ebf9ff5246607ab",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_plynl_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "304200 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_plynl_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "8f18c98ecd84a12b04fd0e45de2630ba",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_plynl_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "49056058 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_plynl_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "03e729248dff997524061f63645bd7d5",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_plynl_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "14646226 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_plynl_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "6507441b81b69bd825176391ef74dbd7",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_plynl_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "35370693 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_portn_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "d042eb7aa1178362a7fe5462c0b07836",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_portn_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "958700 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_portn_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "7c23ff86086bf30b0405c50bd4d588da",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_portn_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "306718 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_portn_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "208fdd45b55bc555635d0c803fefb412",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_portn_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "48282736 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_portn_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "2c010124dcc1d120d6a58d3957b10010",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_portn_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "14847586 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_portn_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "7a7863a4768341c2d6d841af0d3d0a8e",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_portn_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "35103125 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_rdmer_hydrosoil_daily_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "c719a4c99ae5b9fa111436bfc5207801",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_rdmer_hydrosoil_daily_2015-2023.csv",
+      "contentSize": "992494 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_rdmer_hydrosoil_daily_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "c3a2ee4d608d813a3b58c810e24b8e39",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_rdmer_hydrosoil_daily_2015-2023_flags.csv",
+      "contentSize": "343200 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_rdmer_hydrosoil_sh_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "f6bfe16a1da629aa5b71c6958335c9c7",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_rdmer_hydrosoil_sh_2015-2023.csv",
+      "contentSize": "46855594 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_rdmer_hydrosoil_sh_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "74c767f41709a887ddd522fc32892245",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_rdmer_hydrosoil_sh_2015-2023_flags.csv",
+      "contentSize": "16590704 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_rdmer_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "d6219020ad4733ebf9f93c528f05d6af",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_rdmer_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "contentSize": "32568231 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_redhl_hydrosoil_daily_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "e2c9ec53b45c7f36baca727bcead45ae",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_redhl_hydrosoil_daily_2016-2023.csv",
+      "contentSize": "829235 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_redhl_hydrosoil_daily_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "25fff9862153502bbf71ec0baebc8f2a",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_redhl_hydrosoil_daily_2016-2023_flags.csv",
+      "contentSize": "260788 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_redhl_hydrosoil_sh_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "34ffbabe3f45468485cdb5105a327a62",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_redhl_hydrosoil_sh_2016-2023.csv",
+      "contentSize": "42216506 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_redhl_hydrosoil_sh_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "e2eda2a961f07128eda925d5a0afd9ce",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_redhl_hydrosoil_sh_2016-2023_flags.csv",
+      "contentSize": "12597662 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_redhl_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "bf89b4d84299efdcddf0eff7cc722691",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_redhl_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "contentSize": "30341661 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_riseh_hydrosoil_daily_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "7234e982e4827c530fbbd2aaa6ce01f6",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_riseh_hydrosoil_daily_2016-2023.csv",
+      "contentSize": "752978 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_riseh_hydrosoil_daily_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "aef1ef41869cc794bb76ae490eae06db",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_riseh_hydrosoil_daily_2016-2023_flags.csv",
+      "contentSize": "210416 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_riseh_hydrosoil_sh_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "6941a74728b82c5140c5227955b5d187",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_riseh_hydrosoil_sh_2016-2023.csv",
+      "contentSize": "40247529 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_riseh_hydrosoil_sh_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "20cc435d29f1ba4df1e876aa271ef6fe",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_riseh_hydrosoil_sh_2016-2023_flags.csv",
+      "contentSize": "10185855 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_riseh_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "969411f5178a2db8cd275ad164f8b1f5",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_riseh_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "contentSize": "27435816 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_rothd_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "fa9115e7b6a1f75cad071a6b50d4e45b",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_rothd_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "993638 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_rothd_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "7445a3d77181e8ff8fefbdb2fcefd96d",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_rothd_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "311653 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_rothd_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "babc710f8549f1506e66fe1c0d9e2425",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_rothd_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "50706442 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_rothd_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "05ff7dbdc00180dd9ccb23ca36da381a",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_rothd_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "15066388 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_rothd_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "968eb25a7a433d60cc456627837f8aa2",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_rothd_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "36485855 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_sheep_hydrosoil_daily_2013-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "887e22d2f42517decda45c7624b46147",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_sheep_hydrosoil_daily_2013-2023.csv",
+      "contentSize": "1039243 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_sheep_hydrosoil_daily_2013-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "c59c073afd272947289bef835c516209",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_sheep_hydrosoil_daily_2013-2023_flags.csv",
+      "contentSize": "316275 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_sheep_hydrosoil_sh_2013-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "3a8ab49d5a0251e43914734539a3226d",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_sheep_hydrosoil_sh_2013-2023.csv",
+      "contentSize": "53404681 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_sheep_hydrosoil_sh_2013-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "5a574f237c67cf5be874fda77f4a4c0b",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_sheep_hydrosoil_sh_2013-2023_flags.csv",
+      "contentSize": "15591680 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_sheep_hydrosoil_sh_2013-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "9c24a0a925f2a710a98fafe43b6059b1",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_sheep_hydrosoil_sh_2013-2023_qc_flags.csv",
+      "contentSize": "38493906 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_sourh_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "da3bad9362fcb51a0730a03837794d14",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_sourh_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "959948 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_sourh_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "28ecce92ff8e277043dfc74b7b027173",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_sourh_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "303878 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_sourh_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "f22a1782765abf8e54e44c95a7266828",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_sourh_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "48743220 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_sourh_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "659228d7f74ffcc9ba38d340c858c594",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_sourh_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "14656432 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_sourh_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "9569983359c6aa747a4f5bdec45b5db1",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_sourh_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "35221564 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_spenf_hydrosoil_daily_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "1800be3cffe18c4b4f2ef13caaa95714",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_spenf_hydrosoil_daily_2016-2023.csv",
+      "contentSize": "700940 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_spenf_hydrosoil_daily_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "b66e8485a162f2ccd0f9756cd8de1b67",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_spenf_hydrosoil_daily_2016-2023_flags.csv",
+      "contentSize": "197306 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_spenf_hydrosoil_sh_2016-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "046f6975707ac5d52f94b7f192b3a73a",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_spenf_hydrosoil_sh_2016-2023.csv",
+      "contentSize": "37512211 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_spenf_hydrosoil_sh_2016-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "ceb2d4b9978f2720ed691cd1a57bee79",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_spenf_hydrosoil_sh_2016-2023_flags.csv",
+      "contentSize": "9521390 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_spenf_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "680e9103c05fe88ee4db8e8f68412cb4",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_spenf_hydrosoil_sh_2016-2023_qc_flags.csv",
+      "contentSize": "25443338 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_stght_hydrosoil_daily_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "ae447982409bf4da1257cf9d73871075",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_stght_hydrosoil_daily_2015-2023.csv",
+      "contentSize": "879281 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_stght_hydrosoil_daily_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "964e9ab20d25ab99969fa3a0b71cda58",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_stght_hydrosoil_daily_2015-2023_flags.csv",
+      "contentSize": "276789 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_stght_hydrosoil_sh_2015-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "d836cdf8a2326646a5a84eaeaa15f8ae",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_stght_hydrosoil_sh_2015-2023.csv",
+      "contentSize": "44775474 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_stght_hydrosoil_sh_2015-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "5756c7c661eea92072db4bd1079d0319",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_stght_hydrosoil_sh_2015-2023_flags.csv",
+      "contentSize": "13362916 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_stght_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "19554247d7638e6c99838c1ea7f41091",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_stght_hydrosoil_sh_2015-2023_qc_flags.csv",
+      "contentSize": "32313976 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_stips_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "c9362243103d701393805817fb0a0735",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_stips_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "957319 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_stips_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "855124883384d68c37e36316b86ca7f5",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_stips_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "303325 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_stips_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "8106a30d236c434cd7166648189fd286",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_stips_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "48985678 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_stips_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "16758c341a8dc9003a9f9c74f55679ba",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_stips_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "14644608 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_stips_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "c2f5152bd3b4c8d0d3a615b90b0f8ecb",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_stips_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "35363319 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_sydlg_hydrosoil_daily_2018-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "98e5753a78103f4ef51d73bb21c588ed",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_sydlg_hydrosoil_daily_2018-2023.csv",
+      "contentSize": "510924 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_sydlg_hydrosoil_daily_2018-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "b7129ded970d376f25ce26c853196394",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_sydlg_hydrosoil_daily_2018-2023_flags.csv",
+      "contentSize": "150923 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_sydlg_hydrosoil_sh_2018-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "8b688fd8df2a1c658e19a9d33da6c7f9",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_sydlg_hydrosoil_sh_2018-2023.csv",
+      "contentSize": "26786873 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_sydlg_hydrosoil_sh_2018-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "7c1fea673074db45f016f8c2a9fe83c6",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_sydlg_hydrosoil_sh_2018-2023_flags.csv",
+      "contentSize": "7169804 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_sydlg_hydrosoil_sh_2018-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "4d738027379c2a868668594e04fd3d18",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_sydlg_hydrosoil_sh_2018-2023_qc_flags.csv",
+      "contentSize": "18526505 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_tadhm_hydrosoil_daily_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "5f86ba5229aaf04ae873f83f51f0304f",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_tadhm_hydrosoil_daily_2014-2023.csv",
+      "contentSize": "972817 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_tadhm_hydrosoil_daily_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "50273669249e0c968137ba7f9a7e4622",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_tadhm_hydrosoil_daily_2014-2023_flags.csv",
+      "contentSize": "305475 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_tadhm_hydrosoil_sh_2014-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "e5b724624914175e791c95b64b5af7bd",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_tadhm_hydrosoil_sh_2014-2023.csv",
+      "contentSize": "49336208 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_tadhm_hydrosoil_sh_2014-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "9120fbe73b87e9ae0a6c1871eec7af0e",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_tadhm_hydrosoil_sh_2014-2023_flags.csv",
+      "contentSize": "14772018 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_tadhm_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "2743d8346812bf0a5cdc599d3b429e8d",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_tadhm_hydrosoil_sh_2014-2023_qc_flags.csv",
+      "contentSize": "35629697 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_waddn_hydrosoil_daily_2013-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "4f691341631d04d5c829a019d8099822",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_waddn_hydrosoil_daily_2013-2023.csv",
+      "contentSize": "1036971 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_waddn_hydrosoil_daily_2013-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "a52a788b280c5ea5f95e5f76fe14c4a4",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_waddn_hydrosoil_daily_2013-2023_flags.csv",
+      "contentSize": "313191 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_waddn_hydrosoil_sh_2013-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "3583fdc6c17eecc5df6c40c0663b4178",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_waddn_hydrosoil_sh_2013-2023.csv",
+      "contentSize": "53244580 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_waddn_hydrosoil_sh_2013-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "a8eb251deea50e4b044bdb15ddac5d1b",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_waddn_hydrosoil_sh_2013-2023_flags.csv",
+      "contentSize": "15472240 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_waddn_hydrosoil_sh_2013-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "5d26b3dde3893a684b006ba7a8445b79",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_waddn_hydrosoil_sh_2013-2023_qc_flags.csv",
+      "contentSize": "38304313 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_wimpl_hydrosoil_daily_2019-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "691e6b851d3d60e0920238e613a59ee5",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_wimpl_hydrosoil_daily_2019-2023.csv",
+      "contentSize": "423756 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_wimpl_hydrosoil_daily_2019-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "ada1303baf87a0cb7f3ce0f579eaf963",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_wimpl_hydrosoil_daily_2019-2023_flags.csv",
+      "contentSize": "119620 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_wimpl_hydrosoil_sh_2019-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "19b28bbdb6e9cf5037dbceef7937c9ab",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_wimpl_hydrosoil_sh_2019-2023.csv",
+      "contentSize": "22676420 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_wimpl_hydrosoil_sh_2019-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "7c190b2356247b119c1c190e2bea1d0c",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_wimpl_hydrosoil_sh_2019-2023_flags.csv",
+      "contentSize": "5750360 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_wimpl_hydrosoil_sh_2019-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "654a2c95097bea86abfccf4920c6b28f",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_wimpl_hydrosoil_sh_2019-2023_qc_flags.csv",
+      "contentSize": "15248445 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_wrttl_hydrosoil_daily_2017-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "f64ef7721a222edaeb5bb22c92851940",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_wrttl_hydrosoil_daily_2017-2023.csv",
+      "contentSize": "637613 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_wrttl_hydrosoil_daily_2017-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "70ce72e6baf0c2defc326187b22e6219",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_wrttl_hydrosoil_daily_2017-2023_flags.csv",
+      "contentSize": "177123 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_wrttl_hydrosoil_sh_2017-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "65ee903d2cdc499ab52881bb2243f638",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_wrttl_hydrosoil_sh_2017-2023.csv",
+      "contentSize": "34151149 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_wrttl_hydrosoil_sh_2017-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "cfba39f8c701024f4bccb88aba989ace",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_wrttl_hydrosoil_sh_2017-2023_flags.csv",
+      "contentSize": "8569640 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_wrttl_hydrosoil_sh_2017-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "320e1925ce7575d1d8bea3bff69cfd59",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_wrttl_hydrosoil_sh_2017-2023_qc_flags.csv",
+      "contentSize": "23163166 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_wyth1_hydrosoil_daily_2013-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "0bc4ac755bbda2196c63a4539b6cc70a",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_wyth1_hydrosoil_daily_2013-2023.csv",
+      "contentSize": "1141184 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_wyth1_hydrosoil_daily_2013-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "631ff33b6ebab4343c43b8a69ecd3461",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_wyth1_hydrosoil_daily_2013-2023_flags.csv",
+      "contentSize": "406730 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_wyth1_hydrosoil_sh_2013-2023.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "09489318848850d26f85655f44f54633",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_wyth1_hydrosoil_sh_2013-2023.csv",
+      "contentSize": "52739426 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_wyth1_hydrosoil_sh_2013-2023_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "70680ccbd4f1d7cf4a8efc7dae8a4887",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_wyth1_hydrosoil_sh_2013-2023_flags.csv",
+      "contentSize": "19725781 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cosmos-uk_wyth1_hydrosoil_sh_2013-2023_qc_flags.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "d539ec4e3f48ddb05727a2e1c1e64e04",
+      "contentUrl": "https://catalogue.ceh.ac.uk/datastore/eidchub/399ed9b1-bf59-4d85-9832-ee4d29f49bfb/cosmos-uk_wyth1_hydrosoil_sh_2013-2023_qc_flags.csv",
+      "contentSize": "38055096 B"
+    }
+  ],
+  "keywords": [
+    "cosmic-ray sensing probe",
+    "COSMOS-UK",
+    "soil depth 10cm",
+    "soil depth 20cm",
+    "soil depth 2cm",
+    "soil depth 50cm",
+    "soil depth 5cm",
+    "UK",
+    "UK-SCAPE",
+    "Soil",
+    "Environmental survey",
+    "Hydrology"
+  ],
+  "creator": [
+    {
+      "@id": "https://orcid.org/0000-0002-6447-6740",
+      "@type": "Person",
+      "name": "Smith, R.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-6011-4075",
+      "@type": "Person",
+      "name": "Antoniou, V.",
+      "email": "vantoniou@aua.gr",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/03xawq568",
+        "name": "Agricultural University of Athens"
+      }
+    },
+    {
+      "@id": "#creator2",
+      "@type": "Person",
+      "name": "Askquith-Ellis, A.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-0203-5958",
+      "@type": "Person",
+      "name": "Ball, L.A.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-7398-9268",
+      "@type": "Person",
+      "name": "Bennett, E.S.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-1033-4712",
+      "@type": "Person",
+      "name": "Blake, J.R.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-6436-5266",
+      "@type": "Person",
+      "name": "Boorman, D.B.",
+      "email": "dbboorman@gmail.com",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "",
+        "name": "Unaffiliated"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-7439-0393",
+      "@type": "Person",
+      "name": "Brooks, M.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "#creator8",
+      "@type": "Person",
+      "name": "Clarke, M.",
+      "email": "MrMAClarke@gmail.com ",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "",
+        "name": "Unaffiliated"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-1382-3407",
+      "@type": "Person",
+      "name": "Cooper, H.M.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-7473-7916",
+      "@type": "Person",
+      "name": "Cowan, N.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-5704-9006",
+      "@type": "Person",
+      "name": "Cumming, A.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-4194-1416",
+      "@type": "Person",
+      "name": "Evans, J.G.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "#creator13",
+      "@type": "Person",
+      "name": "Farrand, P.",
+      "email": "pb.farrand@talktalk.net",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "",
+        "name": "Unaffiliated"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-1142-4039",
+      "@type": "Person",
+      "name": "Fry, M.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "#creator15",
+      "@type": "Person",
+      "name": "Harvey, D.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "#creator16",
+      "@type": "Person",
+      "name": "Houghton-Carr, H.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-9822-316X",
+      "@type": "Person",
+      "name": "Howson, T.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0009-0004-4445-8272",
+      "@type": "Person",
+      "name": "Jiménez-Arranz, G.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "#creator19",
+      "@type": "Person",
+      "name": "Keen, Y.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "#creator20",
+      "@type": "Person",
+      "name": "Khamis, D.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "#creator21",
+      "@type": "Person",
+      "name": "Leeson, S.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-2987-488X",
+      "@type": "Person",
+      "name": "Lord, W.D.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-1847-3127",
+      "@type": "Person",
+      "name": "Morrison, R.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-1611-2042",
+      "@type": "Person",
+      "name": "Nash, G.V.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "#creator25",
+      "@type": "Person",
+      "name": "O'Callaghan, F.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-7426-1153",
+      "@type": "Person",
+      "name": "Rylett, D.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "#creator27",
+      "@type": "Person",
+      "name": "Scarlett, P.M.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "#creator28",
+      "@type": "Person",
+      "name": "St Quintin, P.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-8303-2969",
+      "@type": "Person",
+      "name": "Stanley, S.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "#creator30",
+      "@type": "Person",
+      "name": "Swain, O.D.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-5820-7093",
+      "@type": "Person",
+      "name": "Szczykulska, M.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "#creator32",
+      "@type": "Person",
+      "name": "Teagle, S.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "#creator33",
+      "@type": "Person",
+      "name": "Thornton, J.L.",
+      "email": "jenna.l.thornton@hotmail.co.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/01ch2yn61",
+        "name": "UK Met Office"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-6233-8942",
+      "@type": "Person",
+      "name": "Trill, E.J.",
+      "email": "emilytrill@gmail.com",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "",
+        "name": "Thomson Environmental Consultants"
+      }
+    },
+    {
+      "@id": "#creator35",
+      "@type": "Person",
+      "name": "Vincent, P.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-8881-185X",
+      "@type": "Person",
+      "name": "Ward, H.C.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "#creator37",
+      "@type": "Person",
+      "name": "Warwick, A.C.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00pggkr55",
+        "name": "UK Centre for Ecology & Hydrology"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-1318-5281",
+      "@type": "Person",
+      "name": "Winterbourn, J.B.",
+      "email": "benwinterbourn@gmail.com",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/006jb1a24",
+        "name": "Bangor University"
+      }
+    }
+  ],
+  "publisher": [
+    {
+      "@id": "https://ror.org/04xw4m193",
+      "@type": "Organization",
+      "name": "NERC EDS Environmental Information Data Centre",
+      "email": "info@eidc.ac.uk",
+      "identifier": "https://ror.org/04xw4m193"
+    }
+  ],
+
+  "recordSet": [
+    {
+      "@id": "rs-cosmos",
+      "@type": "cr:RecordSet",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/SITE_ID",
+          "dataType": "sc:String",
+          "description": "Site",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "SITE_ID"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/DATE_TIME",
+          "dataType": "sc:DateTime",
+          "description": "DateTime",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "DATE_TIME"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/LWIN",
+          "dataType": "sc:Float",
+          "description": "Incoming longwave radiation",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "LWIN"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/LWOUT",
+          "dataType": "sc:Float",
+          "description": "Outgoing longwave radiation",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "LWOUT"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/SWIN",
+          "dataType": "sc:Float",
+          "description": "Incoming shortwave radiation",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "SWIN"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/SWOUT",
+          "dataType": "sc:Float",
+          "description": "Outgoing shortwave radiation",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "SWOUT"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/RN",
+          "dataType": "sc:Float",
+          "description": "Net radiation",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "RN"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/PRECIP",
+          "dataType": "sc:Float",
+          "description": "Precipitation from Pluvio",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "PRECIP"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/PRECIP_TIPPING",
+          "dataType": "sc:Float",
+          "description": "Precipitation from tipping bucket",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "PRECIP_TIPPING"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/PRECIP_RAINE",
+          "dataType": "sc:Float",
+          "description": "Precipitation from rain[e]",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "PRECIP_RAINE"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/PA",
+          "dataType": "sc:Float",
+          "description": "Atmospheric Pressure",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "PA"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TA",
+          "dataType": "sc:Float",
+          "description": "Air Temperature",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TA"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/WS",
+          "dataType": "sc:Float",
+          "description": "Wind speed",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "WS"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/WD",
+          "dataType": "sc:Float",
+          "description": "Wind direction",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "WD"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/Q",
+          "dataType": "sc:Float",
+          "description": "Absolute Humidity",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "Q"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/RH",
+          "dataType": "sc:Float",
+          "description": "Relative Humidity",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "RH"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/SNOW_DEPTH",
+          "dataType": "sc:Float",
+          "description": "Snow depth",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "SNOW_DEPTH"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/UX",
+          "dataType": "sc:Float",
+          "description": "X component of wind speed",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "UX"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/UY",
+          "dataType": "sc:Float",
+          "description": "Y component of wind speed",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "UY"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/UZ",
+          "dataType": "sc:Float",
+          "description": "Z component of wind speed",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "UZ"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/G1",
+          "dataType": "sc:Float",
+          "description": "Heat flux 1",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "G1"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/G2",
+          "dataType": "sc:Float",
+          "description": "Heat flux 2",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "G2"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT1_TSOIL",
+          "dataType": "sc:Float",
+          "description": "Soil temperature from TDT sensor 1 at 10 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT1_TSOIL"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT2_TSOIL",
+          "dataType": "sc:Float",
+          "description": "Soil temperature from TDT sensor 2 at 10 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT2_TSOIL"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT1_VWC",
+          "dataType": "sc:Float",
+          "description": "Volumetric water content from TDT sensor 1 at 10 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT1_VWC"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT2_VWC",
+          "dataType": "sc:Float",
+          "description": "Volumetric water content from TDT sensor 2 at 10 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT2_VWC"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT3_TSOIL",
+          "dataType": "sc:Float",
+          "description": "Soil temperature from TDT sensor 3 at 5 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT3_TSOIL"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT4_TSOIL",
+          "dataType": "sc:Float",
+          "description": "Soil temperature from TDT sensor 4 at 5 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT4_TSOIL"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT3_VWC",
+          "dataType": "sc:Float",
+          "description": "Volumetric water content from TDT sensor 4 at 5 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT3_VWC"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT4_VWC",
+          "dataType": "sc:Float",
+          "description": "Volumetric water content from TDT sensor 3 at 5 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT4_VWC"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT5_TSOIL",
+          "dataType": "sc:Float",
+          "description": "Soil temperature from TDT sensor 5 at 15 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT5_TSOIL"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT6_TSOIL",
+          "dataType": "sc:Float",
+          "description": "Soil temperature from TDT sensor 6 at 15 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT6_TSOIL"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT5_VWC",
+          "dataType": "sc:Float",
+          "description": "Volumetric water content from TDT sensor 5 at 15 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT5_VWC"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT6_VWC",
+          "dataType": "sc:Float",
+          "description": "Volumetric water content from TDT sensor 6 at 15 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT6_VWC"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT7_TSOIL",
+          "dataType": "sc:Float",
+          "description": "Soil temperature from TDT sensor 7 at 25 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT7_TSOIL"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT8_TSOIL",
+          "dataType": "sc:Float",
+          "description": "Soil temperature from TDT sensor 8 at 25 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT8_TSOIL"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT7_VWC",
+          "dataType": "sc:Float",
+          "description": "Volumetric water content from TDT sensor 7 at 25 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT7_VWC"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT8_VWC",
+          "dataType": "sc:Float",
+          "description": "Volumetric water content from TDT sensor 8 at 25 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT8_VWC"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT9_TSOIL",
+          "dataType": "sc:Float",
+          "description": "Soil temperature from TDT sensor 9 at 50 cm, except for Heytesbury site where sensors at 5 cm*",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT9_TSOIL"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT10_TSOIL",
+          "dataType": "sc:Float",
+          "description": "Soil temperature from TDT sensor 10 at 50 cm, except for Heytesbury site where sensors at 5 cm*",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT10_TSOIL"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT9_VWC",
+          "dataType": "sc:Float",
+          "description": "Volumetric water content from TDT sensor 9 at 50 cm, except for Heytesbury site where sensors at 5 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT9_VWC"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/TDT10_VWC",
+          "dataType": "sc:Float",
+          "description": "Volumetric water content from TDT sensor 10 at 50 cm, except for Heytesbury site where sensors at 5 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "TDT10_VWC"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/STP_TSOIL2",
+          "dataType": "sc:Float",
+          "description": "Soil temperature at depth 2 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "STP_TSOIL2"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/STP_TSOIL5",
+          "dataType": "sc:Float",
+          "description": "Soil temperature at depth 5 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "STP_TSOIL5"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/STP_TSOIL10",
+          "dataType": "sc:Float",
+          "description": "Soil temperature at depth 10 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "STP_TSOIL10"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/STP_TSOIL20",
+          "dataType": "sc:Float",
+          "description": "Soil temperature at depth 20 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "STP_TSOIL20"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dailysoil_data/STP_TSOIL50",
+          "dataType": "sc:Float",
+          "description": "Soil temperature at depth 50 cm",
+          "source": {
+            "fileObject": { "@id": "dailysoil_data" },
+            "extract": {
+              "column": "STP_TSOIL50"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
