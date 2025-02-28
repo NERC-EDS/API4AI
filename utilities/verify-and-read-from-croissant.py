@@ -1,5 +1,5 @@
 import mlcroissant as mlc
-
+import os
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
@@ -14,9 +14,15 @@ session.mount('https://', adapter)
 # Increase default timeout (in seconds)
 session.timeout = 60  # Increase to 60 seconds
 
+# If data URLs are protected by basic authentication, set these environment variables and the mlcroissant
+# library will use them when downloading data.
+    
+os.environ["CROISSANT_BASIC_AUTH_USERNAME"] = "todo"
+os.environ["CROISSANT_BASIC_AUTH_PASSWORD"] = "todo"
+
 # -------------------------------------------------------------
 
-ds = mlc.Dataset("TODO/put/filepath/here.json")  # <---------------- CHANGE THIS
+ds = mlc.Dataset("TODO/put/croissant/filepath-or-url/here.json")  # <---------------- CHANGE THIS
 
 metadata = ds.metadata.to_json()
 print(f"{metadata['name']}: {metadata['description']}")
@@ -30,7 +36,7 @@ fields = record_set.fields
 for f, field in enumerate(fields):
     print(field, field.name, field.data_type, field.description)  # print the fields within the record set
 
-records: mlc.Records = ds.records(record_set=record_set.id)  # columns
+records: mlc.Records = ds.records(record_set=record_set.id)  # rows
 
 for r, record in enumerate(records):  # i.e. rows
     print("---------------------------------------------------\n", "record ", r)
