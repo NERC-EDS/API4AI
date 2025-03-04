@@ -13,3 +13,7 @@ To use:
 ## GEBCO Croissant File
 
 `gebco_2024.json` is a Croissant file produced from our PDL using the above script. The distribution/recordsets were then manually edited to point to a zip file containing a series of GeoTIFF images. A sample notebook for loading this dataset is provided, `gebco_croissant_demo.ipynb`.
+
+# Example ML Workflow
+
+`pdl_croissant_ai_demo.ipynb` takes the above Croissant file and runs it through a machine learning algorithm, performing k-mean clustering on the GEBCO GeoTiffs. While these results are, themselves, meaningless due to the nature of the data it provides a clear demonstration of what the process would look like.
