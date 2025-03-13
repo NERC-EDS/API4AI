@@ -1,0 +1,359 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "The GEBCO_2024 Grid - a continuous terrain model of the global oceans and land.",
+  "description": "The GEBCO_2024 Grid is a global continuous terrain model for ocean and land with a spatial resolution of 15 arc seconds. In regions largely outside of the Arctic Ocean area, the grid uses as a base Version 2.6 of the SRTM15_plus data set (Tozer et al, 2019). This data set is a fusion of land topography with measured and estimated seafloor topography. Included on top of this base grid are gridded bathymetric data sets developed by the four Regional Centers of The Nippon Foundation-GEBCO Seabed 2030 Project. The GEBCO_2024 Grid represents all data within the 2024 compilation. The compilation of the GEBCO_2024 Grid was carried out at the Seabed 2030 Global Center, hosted at the National Oceanography Centre, UK, with the aim of producing a seamless global terrain model. Outside of Polar regions, the Regional Centers provide their data sets as sparse grids i.e. only grid cells that contain data are populated. These data sets were included on to the base using a \u2018remove-restore\u2019 blending procedure. This is a two-stage process of computing the difference between the new data and the base grid and then gridding the difference and adding the difference back to the existing base grid. The aim is to achieve a smooth transition between the new and base data sets with the minimum of perturbation of the existing base data set. The data sets supplied in the form of complete grids (primarily areas north of 60N and south of 50S) were included using feather blending techniques from GlobalMapper software. The GEBCO_2024 Grid has been developed through the Nippon Foundation-GEBCO Seabed 2030 Project. This is a collaborative project between the Nippon Foundation of Japan and the General Bathymetric Chart of the Oceans (GEBCO). It aims to bring together all available bathymetric data to produce the definitive map of the world ocean floor by 2030 and make it available to all. Funded by the Nippon Foundation, the four Seabed 2030 Regional Centers include the Southern Ocean - hosted at the Alfred Wegener Institute (AWI), Germany; Pacific Ocean - hosted at the National Institute of Water and Atmospheric Research (NIWA), New Zealand; Atlantic and Indian Oceans - hosted at the Lamont-Doherty Earth Observatory (LDEO), Columbia University, USA; Arctic and North Pacific Oceans - jointly hosted at Stockholm University, Sweden and the Center for Coastal and Ocean Mapping at the University of New Hampshire, USA.",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "citeAs": "Weatherall P.;Caceres Ferreras S.;Cardigos S.;Cornish N.;Davidson S.;Dorschel B.;Drennon H.;Ferrini V.;Harper H.;Isler T.;Jakobsson M.;Jimenez Baron B.;Johnson P.;Karlsson M.;Kinney J.;Mackay K.;Martin T.;Mayer L.;McMichael-Phillips J.;Mohammad R.;Nitsche F.;Salas-Romero S.;Sandwell D.;Schwarzbach P.;Snaith H.;Vacek F.;Viquerat S. (2024). The GEBCO_2024 Grid - a continuous terrain model of the global oceans and land. British Oceanographic Data Centre - Natural Environment Research Council, UK. doi: ",
+  "keywords": [
+    "elevation",
+    "oceans"
+  ],
+  "license": "https://www.bodc.ac.uk/data/documents/nodb/599364/",
+  "url": "https://www.bodc.ac.uk/data/published_data_library/catalogue/10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f/",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "zip",
+      "name": "zip",
+      "contentUrl": "https://dap.ceda.ac.uk/bodc/gebco/global/gebco_2024/ice_surface_elevation/geotiff/gebco_2024_geotiff.zip?download=1",
+      "encodingFormat": "application/zip",
+      "md5": "7c4f9e69b8670485e1cfef78c8635136"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "tiffs",
+      "description": "TIFF images of dataset",
+      "containedIn": {
+        "@id": "zip"
+      },
+      "encodingFormat": "image/tif",
+      "includes": "*.tif"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "default",
+      "name": "default",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "images/filename",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "tiffs"
+            },
+            "extract": {
+              "fileProperty": "filename"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "images/content",
+          "dataType": "sc:ImageObject",
+          "source": {
+            "fileSet": {
+              "@id": "tiffs"
+            },
+            "extract": {
+              "fileProperty": "content"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "temporalCoverage": "2023-04-01/2024-07-01",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f",
+    "url": "https://doi.org/10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f"
+  },
+  "alternateName": "GEBCO_2024 Grid",
+  "version": "2024.7.4",
+  "datePublished": "2024-07-04",
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "@id": "http://vocab.nerc.ac.uk/collection/P02/current/MBAN/",
+      "name": "Bathymetry and Elevation"
+    }
+  ],
+  "contributor": [
+    {
+      "@type": "Person",
+      "name": "Caceres Ferreras, Sheila.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Lamont-Doherty Earth Observatory"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Cardigos, Sara.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of New Hampshire, Center for Coastal and Ocean Mapping"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Cornish, Natalie.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0000-0003-0865-3543",
+      "name": "Davidson, Sam.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "New Zealand National Institute of Water & Atmospheric Research, Wellington"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Dorschel, Boris.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0000-0003-0019-6456",
+      "name": "Drennon, Hayley.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Lamont-Doherty Earth Observatory"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Ferrini, Vicki.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Lamont-Doherty Earth Observatory"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0000-0003-1624-9751",
+      "name": "Harper, Hugh.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Scripps Institution of Oceanography"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0009-0001-1805-6702",
+      "name": "Isler, Tea.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Jakobsson, Martin.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Stockholm University, Department of Geological Sciences"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Jimenez Baron, Belen.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "New Zealand National Institute of Water & Atmospheric Research, Wellington"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "http://orcid.org/0000-0002-1033-1693",
+      "name": "Johnson, Paul.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of New Hampshire, Center for Coastal and Ocean Mapping"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Karlsson, Marcus.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Stockholm University, Department of Geological Sciences"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0000-0001-6063-8223",
+      "name": "Kinney, Juliet.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of New Hampshire, Center for Coastal and Ocean Mapping"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Mackay, Kevin.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "New Zealand National Institute of Water & Atmospheric Research, Wellington"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "http://orcid.org/0000-0001-5198-3041",
+      "name": "Martin, Tinah.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Lamont-Doherty Earth Observatory"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Mayer, Larry.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of New Hampshire, Center for Coastal and Ocean Mapping"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "McMichael-Phillips, Jamie.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Nippon Foundation-GEBCO Seabed 2030 Project"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Mohammad, Rezwan.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Stockholm University, Department of Geological Sciences"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "http://orcid.org/0000-0002-4137-547X",
+      "name": "Nitsche, Frank.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Lamont-Doherty Earth Observatory"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0000-0002-7020-8769",
+      "name": "Salas-Romero, Silvia.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Stockholm University, Department of Geological Sciences"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Sandwell, David.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Scripps Institution of Oceanography"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0000-0001-7312-7473",
+      "name": "Schwarzbach, Patrick.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Snaith, Helen.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "British Oceanographic Data Centre, Southampton"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0000-0003-0826-9613",
+      "name": "Vacek, Florian.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Stockholm University, Department of Geological Sciences"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0000-0002-2519-7319",
+      "name": "Viquerat, Sacha.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research"
+      }
+    }
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Published Data Library (PDL) catalogue",
+    "url": "https://www.bodc.ac.uk/data/published_data_library/"
+  },
+  "spatialCoverage": [],
+  "isAccessibleForFree": true
+}
