@@ -3,7 +3,7 @@
 ## Making Data in the EIDC accessible via Croissant
 [The Environmental Information Data Centre (EIDC)](https://eidc.ac.uk/) is part of the Natural Environment Research Council's (NERC) Environmental Data Service and is hosted by the UK Centre for Ecology & Hydrology (UKCEH), managing nationally-important datasets concerned with the terrestrial and freshwater sciences. 
 
-A Croissant API has been developed for each dataset in the EIDC, for example: [Croissant API: Bare sand, wind speed, aspect and slope at four English and Welsh coastal sand dunes, 2014-2016](https://catalogue.ceh.ac.uk/documents/972599af-0cc3-4e0e-a4dc-2fab7a6dfc85?format=croissant). 
+A dynamic Croissant API has been developed for each dataset in the EIDC, which is currently accessible by altering the URL to include '?format=croissant', for example: [Croissant API: Bare sand, wind speed, aspect and slope at four English and Welsh coastal sand dunes, 2014-2016](https://catalogue.ceh.ac.uk/documents/972599af-0cc3-4e0e-a4dc-2fab7a6dfc85?format=croissant). There is still some tinkering required to get all the relevant information automatically populated but the current prototype is the majority of the way there.  
 
 Currently some manual editing is required to incorporate information about the recordSet for the data. A selection of these manually adjusted croissant files are available here:
 - [Adjusted croissant file: Bare sand, wind speed, aspect and slope at four English and Welsh coastal sand dunes, 2014-2016](/croissant-examples/ukceh/croissantSpikeZip.json)
