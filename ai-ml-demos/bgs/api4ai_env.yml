@@ -1,0 +1,16 @@
+name: api4ai_2
+channels:
+  - https://nexus-internal.bgs.ac.uk/repository/conda/main
+  - https://nexus-internal.bgs.ac.uk/repository/conda-forge
+dependencies:
+    - python
+    - pandas
+    - matplotlib
+    - scikit-learn
+    - scikit-image
+    - spyder-kernels = 2.5.*
+    - graphviz
+    - pip
+    - pip:
+        - opencv-python
+        - mlcroissant
