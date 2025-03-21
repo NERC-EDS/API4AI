@@ -420,7 +420,9 @@ _In this case, the issue lies with pygeoapi, not Croissant......_
 
 As mentioned above, the initial idea was to have an OGC API hosted by a **pygeoapi** instance. This API would serve a Croissant specification from a dedicated endpoint, leveraging pygeoapi’s JSON-LD support, while also providing access to the data referenced in the Croissant specification.
 
-However, due to limitations in the customisation options available within **pygeoapi**, adding an additional endpoint was not feasible (at least not without subverting existing plugin support). As a workaround, an additional **OGC link** (which is supported by pygeoapi’s configuration) was added which would link to a Croissant specification hosted elsewhere. This Croissant specification, in turn, referenced data served by **pygeoapi** via a CQL endpoint/query.
+However, due to limitations in the customisation options available within **pygeoapi**, adding an additional endpoint was not feasible (at least not without subverting existing plugin support). As a workaround, an additional **OGC link** (which is supported by pygeoapi’s configuration) could be added which would link to a Croissant specification hosted elsewhere. This Croissant specification, in turn, could reference data served by **pygeoapi** via a CQL endpoint/query.
+
+> Please note that incorporating JSON objects within the flat database table structure required by **pygeoapi** may restrict the available CQL operations and limit the ability to retrieve results in CSV format.
 
 While not ideal, this approach at least demonstrates how Croissant can be used alongside OGC APIs. If these APIs were designed to  support Croissant specification endpoints (as they do for **openapi** specification endpoints which deliver very similar information), they could serve as self-contained sources for both ML metadata and data delivery.  
 
@@ -456,7 +458,9 @@ However, due to its newness, there is still limited technical information, docum
 
 As Croissant evolves, better tooling, more real-world case studies, and expanded community contributions will be essential to unlocking its full potential and making it easier to implement at scale. Croissant's success will depend on continued community engagement, tool support, and real-world adoption in ML research and industry.  
  
-### Authentication and Python Library: mlcroissant 
+### Python Library: mlcroissant 
+
+#### Authentication
 
 The **mlcroissant** library currently supports data retrieval (contentUrls) only from unauthenticated endpoints, or endpoints that use **basic authentication**. 
 
@@ -471,6 +475,12 @@ Basic authentication for data retrieval (contentUrls) is supported, this support
 - Additionally, data retrieval is limited to **basic authentication**, meaning endpoints requiring more advanced authentication methods are not accessible.
 
 While the library allows loading metadata and datasets from various sources, including HTTP, cloud storage, and local files, its support for accessing protected resources remains limited. If not resolved this limitation could impact adoption for datasets hosted on private servers, restricted cloud storage, or enterprise data platforms. Hopefully, future updates would improve support for authentication.
+
+#### JSON Content
+During experimentation with the **mlcroissant** library for consuming JSON data, it was observed that the selected JSONPath dependency does not fully support the complete [JSONPath specification](https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html). In particular, it lacks the capability to perform logical filtering on attribute values, such as $..book[?(@.price<10)].
+
+#### Checksums and IsLive
+If our interpretation of the [Croissant](https://docs.mlcommons.org/croissant/docs/croissant-spec.html) specification is correct, each 'FileObject' **may** include a checksum value, and the specification explicitly states that _"it is strongly recommended to record such checksums for all used FileObjects."_ However, when using the mlcroissant library to generate a specification file, it raises errors if a checksum is not provided, even when the `isLiveDataset` boolean property is set to `true`.
  
 ### Alternatives to Croissant
 
