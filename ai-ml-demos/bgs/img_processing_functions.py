@@ -179,7 +179,7 @@ def kmeans_segmentation (xpl_masked, num_clusters=5):
     clust_percs = [np.round (len(labels[labels==ii])*100/len(labels), 1) for ii in range(k)]
     clust_labels = ['Cluster ' + str(ii) for ii in range(k)]
     
-    print ('Percentage of pixels in each cluster:')
+    print ('Percentage of pixels in each cluster (including box as Cluster 0):')
     for i in range(len(clust_labels)):
         print(clust_labels[i], '=', clust_percs[i], '%')
     
