@@ -192,7 +192,7 @@ def plot_test_image (ppl_img, xpl_img):
     f, axes = plt.subplots (1, 2, figsize=(8, 3), layout='constrained')
     axes[0].imshow (ppl_img)
     axes[1].imshow (xpl_img)
-    axes[0].set_title ('Plain polarised light')
+    axes[0].set_title ('Plane polarised light')
     axes[1].set_title ('Cross polarised light')    
     for ax in axes: ax.axis('off')
     plt.show()
@@ -229,7 +229,7 @@ def plot_kmeans_segmentation_results (mask, xpl_masked, ppl_img, clust_img,
                          # vmin=np.unique(X_labelled).min(),
                          # vmax=np.unique(X_labelled).max(), 
                          norm=norm,)
-    axes[0, 0].set_title ('Plain polarised light + Mask')
+    axes[0, 0].set_title ('Plane polarised light + Mask')
     axes[0, 1].set_title ('Cross polarised light (masked)')
     axes[1, 1].set_title ('Segmented image')
     axes[1, 0].set_title ('Percentage of pixels in each cluster')
