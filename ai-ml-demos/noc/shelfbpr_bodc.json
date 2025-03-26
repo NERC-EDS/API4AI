@@ -1,0 +1,148 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "Historical shelf seas bottom pressure recorder data",
+  "description": "The data set comprises time series measurements from offshore pressure gauges mounted on the sea floor. The data holdings are approximately 250 observation months from 100 sites. The data have mainly been collected in the continental shelf seas around the British Isles. Data records contain date/time, total pressure and, occasionally, temperature. The sampling interval is typically 15 minutes or hourly, over deployment periods ranging from 1 to 6 months. Data were collected mainly by the Proudman Oceanographic Laboratory (POL), now the National Oceanography Centre (NOC) at Liverpool, and are managed by the British Oceanographic Data Centre (BODC).",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "citeAs": "Alcock G.;Cartwright D. (2017). Historical shelf seas bottom pressure recorder data. Proudman Oceanographic Laboratory. British Oceanographic Data Centre - Natural Environment Research Council, UK.",
+  "keywords": [
+    "elevation",
+    "oceans"
+  ],
+  "license": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/1/open-government-licence.htm",
+  "url": "https://www.bodc.ac.uk/resources/inventories/edmed/report/155/",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "zip",
+      "name": "zip",
+      "contentUrl": "https://www.bodc.ac.uk/data/hosted_data_systems/sea_level/bpr/data/shelfbpr.zip?download=1",
+      "encodingFormat": "application/zip",
+      "md5": "0202a353ff96a7278ddb97c92c3dbb98"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "dats",
+      "description": "dat files of dataset",
+      "containedIn": {
+        "@id": "zip"
+      },
+      "encodingFormat": "data/dat",
+      "includes": "*.dat"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "default",
+      "name": "default",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "dat/filename",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "dats"
+            },
+            "extract": {
+              "fileProperty": "filename"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "dat/content",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "dats"
+            },
+            "extract": {
+              "fileProperty": "content"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "temporalCoverage": "1970-01-01/1980-01-01",
+  "version": "2017.3.30",
+  "datePublished": "2017-03-30",
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "@id": "http://vocab.nerc.ac.uk/collection/P01/current/PPSCZZ01/",
+      "name": "Pressure (measured variable) exerted by the water body plus atmosphere"
+    }
+  ],
+  "contributor": [
+    {
+      "@type": "Person",
+      "name": "Alcock, Graham.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Proudman Oceanographic Laboratory"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Cartwright, David.",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Proudman Oceanographic Laboratory"
+      }
+    }
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "European Directory of Marine Environmental Data (EDMED)",
+    "url": "https://www.bodc.ac.uk/data/bodc_database/nodb/data_collection/155/"
+  },
+  "spatialCoverage": [],
+  "isAccessibleForFree": true
+}
