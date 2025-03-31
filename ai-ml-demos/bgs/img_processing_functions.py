@@ -36,7 +36,7 @@ def mask_from_xpl_image (xpl_img_gray, xpl_img, ppl_img, LR=False, plot_checks=F
         hist_max = xpl_hist_y.max()
         hist_max_sample = int (np.argwhere (xpl_hist_y==xpl_hist_y.max())[0][0])
         # hist_max_height = xpl_hist[0][hist_max_sample]
-        if LR == True: prom=10000
+        if LR == True: prom=6000
         else: prom = 100000
         peaks, _ = find_peaks (xpl_hist_y, prominence=prom)#height=hist_max)
         pwidths = list (peak_widths (xpl_hist_y, peaks, rel_height = rel_height)) # This contains peak width, 
@@ -52,9 +52,10 @@ def mask_from_xpl_image (xpl_img_gray, xpl_img, ppl_img, LR=False, plot_checks=F
                 peaks = np.delete(peaks, np.where(peaks == pp)[0][0])
 
         if len(peaks)==2 and peaks[1]-peaks[0]<4:
-            print ('Two prominent peaks found in close proximity...')
-            if pwidths[0][1]>pwidths[0][0]: pn=1
-            else: pn=0
+            # print ('Two prominent peaks found in close proximity...')
+            # if pwidths[0][1] > pwidths[0][0]: pn=1
+            # else: pn=0
+            pn=1
             thresh_sample = int(np.round(pwidths[-1], 0)[pn])
             eval_height = pwidths[1][pn]
         elif len(peaks) <= 3:
@@ -78,8 +79,8 @@ def mask_from_xpl_image (xpl_img_gray, xpl_img, ppl_img, LR=False, plot_checks=F
         # Fill edges from previously thresholded image and remove small spurious
         # objects that may remain:
         fill_edges = ndi.binary_fill_holes(xpl_clean)
-        if LR==True: val=50000
-        else: val=1000000
+        if LR==True: val=5000
+        else: val=100000
         edges_clean = ski.morphology.remove_small_objects (fill_edges, val)
     
         # Get mask as a binary array instead of a boolean one:
@@ -129,7 +130,7 @@ def mask_from_xpl_image (xpl_img_gray, xpl_img, ppl_img, LR=False, plot_checks=F
 
     # Sanity check plot:
     if plot_checks==True:
-        f, axes = plt.subplots (1, 2, figsize=(8, 3), layout='constrained')
+        f, axes = plt.subplots (1, 2, figsize=(12, 5), layout='constrained')
         axes[0].plot (xpl_hist_x, xpl_hist_y, '.-k', markersize=0.7, linewidth=0.5)
         axes[0].axhline (eval_height, color='r')
         axes[0].axvline (threshold, color='orange', label='Box threshold')
@@ -262,7 +263,7 @@ def plot_kmeans_segmentation_results (mask, xpl_masked, ppl_img, clust_img,
     
 
 def plot_kmeans_segmentation_results_zoomed (xpl_img, clust_img, clust_labels,
-                                             sample_id, img_save_dir=None, 
+                                             sample_id, LR=False, img_save_dir=None, 
                                              save_fig=False, close_fig=False):
 
     # Colormap for clustered image:
@@ -295,7 +296,8 @@ def plot_kmeans_segmentation_results_zoomed (xpl_img, clust_img, clust_labels,
     axes[1].set_title ('Segmented image')
 
     # Plot square in the middle of the image:
-    square_size = 800
+    if LR==False: square_size = 800
+    else: square_size = 200
     x_size= xpl_img.shape[1]; y_size = xpl_img.shape[0]
     axes[0].set_xlim ([int((x_size/2)-square_size/2), int((x_size/2)+square_size/2)])
     axes[0].set_ylim ([int((y_size/2)+square_size/2), int((y_size/2)-square_size/2)])
@@ -336,6 +338,14 @@ def find_box_cluster (clust_img):
                 # print (vals[cc], clust_nums[cv])
                 
     box_clust, box_counts = np.unique (clust_nums, return_counts=True)
+
+    # There might be more than one cluster number in box_clust. Take the value
+    # that appears most often as the box_cluster:
+    if len(box_clust)!=1:
+        for bc, count in enumerate(box_counts):
+            print(bc, count)
+            if count==box_counts.max(): box_clust=box_clust[bc]; box_counts=box_counts[bc]
+            
 
     # If the box cluster is not cluster 0, change labels to make it so:
     if box_clust != 0:
