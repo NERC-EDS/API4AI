@@ -1,12 +1,12 @@
 {
   "@context": {
-    "@language": "en",
+    "@language": "en", 
     "@vocab": "https://schema.org/",
     "citeAs": "cr:citeAs",
     "column": "cr:column",
     "conformsTo": "dct:conformsTo",
     "cr": "http://mlcommons.org/croissant/",
-	  "rai": "http://mlcommons.org/croissant/RAI/",
+	  "rai": "http://mlcommons.org/croissant/RAI/", 
     "data": {
       "@id": "cr:data",
       "@type": "@json"
@@ -75,7 +75,7 @@
     {
       "@type": "fileObject",
       "@id": "972599af-0cc3-4e0e-a4dc-2fab7a6dfc85.zip",
-      "sha256": "c1971ddc6f18db30e529a59ee011e9087d2f074b3bdc6c132d7924ae601f99d5",
+      "sha256": "68d5fd3917540c3c0ffcbeed9c0133d8a538143abd9ec1deea15eedd2f7f6247",
       "contentUrl": "https://data-package.ceh.ac.uk/data/972599af-0cc3-4e0e-a4dc-2fab7a6dfc85.zip",
       "contentSize": "20986517 B",
       "encodingFormat": "application/zip"
@@ -149,6 +149,15 @@
           "cr:source": {
             "cr:fileObject": { "@id": "abberfraw" },
             "cr:extract": { "cr:column": "WindSpeed"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "BareSand_it1",
+          "dataType": "sc:Float",
+          "cr:source": {
+            "cr:fileObject": { "@id": "abberfraw" },
+            "cr:extract": { "cr:column": "BareSand_it1"}
           }
         }
       ]
